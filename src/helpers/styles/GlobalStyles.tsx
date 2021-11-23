@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components/macro';
 import { vars } from './variables';
 import { ResetStyles } from './ResetStyles';
+import { media } from './mixins';
 
 type Props = {
   bgColor: string;
@@ -13,6 +14,12 @@ export const GlobalStyles = createGlobalStyle<Props>`
     background-color: ${(props) => props.bgColor};
     color: ${vars.color.white};
     font-family: sans-serif;
+    font-size: ${vars.fontSize.default.small};
+
+    ${media(550)} {
+    font-size: ${vars.fontSize.default.big};
+
+    }
   }
 
   button, select {

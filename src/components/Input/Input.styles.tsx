@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.div`
@@ -23,18 +24,19 @@ export const Label = styled.label`
 
   &.active {
     padding-top: 0.3rem;
-    font-size: 0.7rem;
+    font-size: ${vars.fontSize.default.tiny};
+    font-weight: bold;
     top: 0;
     transform: translateY(0);
   }
 `;
 
 export const Input = styled.input<{ error: boolean }>`
-  height: 100%;
+  height: 3.5rem;
   width: 100%;
+
   padding: 1.2rem 1rem 0.6rem 1rem;
   border-radius: ${vars.borderRadius};
-  font-size: 1rem;
   color: ${vars.color.black};
   background-color: ${vars.color.white};
 
@@ -45,4 +47,9 @@ export const Error = styled.p`
   color: ${vars.color.orange};
   text-align: left;
   margin-top: 0.5rem;
+  font-size: ${vars.fontSize.default.tiny};
+
+  ${media(550)} {
+    font-size: ${vars.fontSize.default.small};
+  }
 `;

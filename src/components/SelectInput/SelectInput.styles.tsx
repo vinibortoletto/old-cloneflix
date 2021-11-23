@@ -1,6 +1,6 @@
-import styled from 'styled-components/macro'
-import { media } from '../../helpers/styles/mixins'
-import { vars } from '../../helpers/styles/variables'
+import styled from 'styled-components/macro';
+import { media } from '../../helpers/styles/mixins';
+import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.div`
   position: relative;
@@ -10,6 +10,22 @@ export const Container = styled.div`
     margin-right: 1.5rem;
   }
 
+  &::after {
+    content: '▼';
+    position: absolute;
+    top: 0.45rem;
+    left: 6rem;
+    transform: scaleX(1.5) scale(0.6);
+    pointer-events: none;
+    font-size: ${vars.fontSize.default.tiny};
+
+    ${media(550)} {
+      top: 0.3rem;
+      left: 8rem;
+      font-size: ${vars.fontSize.default.big};
+    }
+  }
+
   &::before {
     content: '🌐';
     position: absolute;
@@ -17,16 +33,11 @@ export const Container = styled.div`
     left: 0.4rem;
     filter: grayscale(1) contrast(3);
     pointer-events: none;
-  }
 
-  &::after {
-    content: '▼';
-    position: absolute;
-    top: 0.6rem;
-    left: 6.6rem;
-    transform: scaleX(1.5) scale(0.6);
-    pointer-events: none;
-    font-size: 0.7rem;
+    ${media(550)} {
+      top: 0.4rem;
+      left: 0.6rem;
+    }
   }
 
   label {
@@ -47,9 +58,13 @@ export const Container = styled.div`
     border-radius: ${vars.borderRadius};
     appearance: none;
     background-color: transparent;
+
+    ${media(550)} {
+      padding: 0.4rem 2.5rem;
+    }
   }
 
   option {
     background: black;
   }
-`
+`;

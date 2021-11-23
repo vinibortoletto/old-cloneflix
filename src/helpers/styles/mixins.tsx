@@ -1,11 +1,31 @@
-export function media(display: string | number) {
-  let width
+/* eslint-disable no-unused-vars */
+export enum DisplaySize {
+  Tablet,
+  Laptop,
+  LaptopLarge,
+  FourK,
+}
 
-  if (display === 'tablet') width = '768'
-  if (display === 'laptop') width = '1024'
-  if (display === 'laptop-l') width = '1440'
-  if (display === '4k') width = '2560'
-  if (typeof display === 'number') width = display
+export function media(display: DisplaySize | number) {
+  let width;
 
-  return `@media only screen and (min-width: ${width}px)`
+  switch (display) {
+    case DisplaySize.Tablet:
+      width = '768';
+      break;
+    case DisplaySize.Laptop:
+      width = '1024';
+      break;
+    case DisplaySize.LaptopLarge:
+      width = '1440';
+      break;
+    case DisplaySize.FourK:
+      width = '2560';
+      break;
+    default:
+      width = display;
+      break;
+  }
+
+  return `@media only screen and (min-width: ${width}px)`;
 }
