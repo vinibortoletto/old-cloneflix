@@ -18,6 +18,7 @@
     "no-use-before-define": "off",
     "no-unused-vars": "warn",
     "no-console": "warn",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "semi": "off"
   }
 }
