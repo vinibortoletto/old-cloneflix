@@ -1,23 +1,23 @@
 import styled from 'styled-components/macro';
 import { media } from '../../../helpers/styles/mixins';
+import { vars } from '../../../helpers/styles/variables';
 
 export const Container = styled.header`
-  max-width: 125rem;
+  max-width: 100rem;
   width: 100%;
+  height: ${vars.size.header.landing};
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 1rem;
-  margin: auto;
-  font-size: 0.9rem;
 
-  position: absolute;
-  top: 0;
-  left: 0;
+  padding: 0 ${vars.sidePadding.small};
+  margin: auto;
+  font-size: ${vars.fontSize.default.tiny};
 
   ${media(550)} {
-    font-size: 1rem;
-    padding: 1.5rem 2.5rem;
+    font-size: ${vars.fontSize.default.small};
+    padding: 0 ${vars.sidePadding.big};
   }
 `;
 

@@ -1,36 +1,29 @@
 import React from 'react';
-
 // Images
-import bgImg from '../../../images/misc/bg.jpg';
-import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
-
-// Components
-import Button, { ButtonTypes } from '../../../components/Button/Button';
-
+import bgImgSmall from '../../../images/misc/bg-small.jpg';
+import bgImgMedium from '../../../images/misc/bg-medium.jpg';
+import bgImgLarge from '../../../images/misc/bg-large.jpg';
 // Styles
 import * as S from './Hero.styles';
-import Input from '../../../components/Input/Input';
+import Form from './Form/Form';
 
 export default function Hero() {
   return (
     <>
-      <S.Container bgImg={bgImg}>
+      <S.Container>
+        <S.BgImg>
+          <div className="shadow" />
+          <img
+            src={bgImgSmall}
+            srcSet={`${bgImgSmall} 1000vw, ${bgImgMedium} 1500vw, ${bgImgLarge} 1800vw`}
+            alt="um display de vários posters de filmes"
+          />
+        </S.BgImg>
+
         <S.Title>Filmes, séries e muito mais. Sem limites.</S.Title>
         <S.Subtitle>Assista onde quiser. Cancele quando quiser.</S.Subtitle>
 
-        <S.Form>
-          <h3>
-            Pronto para assistir? Informe seu email para criar ou reiniciar sua
-            assinatura.
-          </h3>
-
-          <Input id="email" label="Email" type="email" />
-
-          <Button type={ButtonTypes.Submit}>
-            <span>Vamos lá</span>
-            <MdOutlineKeyboardArrowRight />
-          </Button>
-        </S.Form>
+        <Form />
       </S.Container>
     </>
   );
