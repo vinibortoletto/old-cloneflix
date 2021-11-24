@@ -3,7 +3,7 @@ import { media } from '../../../helpers/styles/mixins';
 import { vars } from '../../../helpers/styles/variables';
 
 export const Container = styled.header`
-  max-width: 100rem;
+  max-width: ${vars.maxWidth};
   width: 100%;
   height: ${vars.size.header.landing};
 

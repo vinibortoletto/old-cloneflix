@@ -6,6 +6,8 @@ import bgImgLarge from '../../../images/misc/bg-large.jpg';
 // Styles
 import * as S from './Hero.styles';
 import Form from './Form/Form';
+import Title from '../../../components/Title/Title';
+import Subtitle from '../../../components/Subtitle/Subtitle';
 
 export default function Hero() {
   return (
@@ -20,8 +22,8 @@ export default function Hero() {
           />
         </S.BgImg>
 
-        <S.Title>Filmes, séries e muito mais. Sem limites.</S.Title>
-        <S.Subtitle>Assista onde quiser. Cancele quando quiser.</S.Subtitle>
+        <Title text="Filmes, séries e muito mais. Sem limites." />
+        <Subtitle text="Assista onde quiser. Cancele quando quiser." />
 
         <Form />
       </S.Container>

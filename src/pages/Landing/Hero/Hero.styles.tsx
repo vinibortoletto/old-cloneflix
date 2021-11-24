@@ -60,23 +60,3 @@ export const BgImg = styled.div`
     }
   }
 `;
-
-export const Title = styled.h1`
-  font-size: ${vars.fontSize.title.small};
-  font-weight: bold;
-  margin-bottom: 1rem;
-
-  ${media(550)} {
-    font-size: ${vars.fontSize.title.big};
-  }
-`;
-
-export const Subtitle = styled.h2`
-  font-weight: normal;
-  font-size: ${vars.fontSize.subtitle.small};
-  margin-bottom: 1rem;
-
-  ${media(550)} {
-    font-size: ${vars.fontSize.subtitle.big};
-  }
-`;
