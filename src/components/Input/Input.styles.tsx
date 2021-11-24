@@ -17,7 +17,7 @@ export const Label = styled.label`
   transform: translateY(-50%);
 
   padding-left: 1rem;
-  color: ${vars.color.lightGrey};
+  color: ${vars.color.mediumGrey};
 
   pointer-events: none;
   transition: 0.2s ease;

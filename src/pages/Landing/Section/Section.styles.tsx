@@ -3,7 +3,7 @@ import { DisplaySize, media } from '../../../helpers/styles/mixins';
 import { vars } from '../../../helpers/styles/variables';
 
 export const Container = styled.section`
-  max-width: ${vars.maxWidth};
+  max-width: 73rem;
   margin: auto;
   padding: 3rem ${vars.sidePadding.small};
   text-align: center;

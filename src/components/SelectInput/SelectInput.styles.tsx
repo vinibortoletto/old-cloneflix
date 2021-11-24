@@ -54,7 +54,7 @@ export const Container = styled.div`
 
   select {
     padding: 0.4rem 1.7rem;
-    border: 1px solid ${vars.color.lightGrey};
+    border: 1px solid ${vars.color.mediumGrey};
     border-radius: ${vars.borderRadius};
     appearance: none;
     background-color: transparent;

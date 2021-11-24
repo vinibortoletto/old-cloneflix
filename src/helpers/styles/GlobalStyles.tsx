@@ -4,21 +4,27 @@ import { ResetStyles } from './ResetStyles';
 import { media } from './mixins';
 
 type Props = {
-  bgColor: string;
+  pathname: string;
 };
 
 export const GlobalStyles = createGlobalStyle<Props>`
   ${ResetStyles};
 
   body {
-    background-color: ${(props) => props.bgColor};
+    background-color: ${(props) =>
+      props.pathname === '/' && `${vars.color.black}`};
+    background-color: ${(props) =>
+      (props.pathname === '/signup' || props.pathname === '/your-account') &&
+      `${vars.color.white}`};
+    background-color: ${(props) =>
+      props.pathname === '/browse' && `${vars.color.darkGrey}`};
+
     color: ${vars.color.white};
     font-family: sans-serif;
     font-size: ${vars.fontSize.default.small};
 
     ${media(550)} {
     font-size: ${vars.fontSize.default.big};
-
     }
   }
 

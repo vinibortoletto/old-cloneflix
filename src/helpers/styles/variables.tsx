@@ -2,8 +2,8 @@ export const vars = {
   color: {
     red: '#E50914',
     darkGrey: '#141414',
-    mediumGrey: '#303030',
-    lightGrey: '#9b9b9b',
+    mediumGrey: '#9b9b9b',
+    lightGrey: 'lightgrey',
     blue: '#0071eb',
     white: '#ffffff',
     black: '#000000',
@@ -17,7 +17,8 @@ export const vars = {
       big: '57rem',
     },
     header: {
-      landing: '5rem',
+      small: '5rem',
+      big: '7rem',
     },
   },
   fontSize: {
@@ -39,5 +40,4 @@ export const vars = {
     small: '1rem',
     big: '2.5rem',
   },
-  maxWidth: '68.75rem',
 };
