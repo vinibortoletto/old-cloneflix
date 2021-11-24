@@ -1,13 +1,17 @@
 import React from 'react';
+
 // Images
 import bgImgSmall from '../../../images/misc/bg-small.jpg';
 import bgImgMedium from '../../../images/misc/bg-medium.jpg';
 import bgImgLarge from '../../../images/misc/bg-large.jpg';
-// Styles
-import * as S from './Hero.styles';
-import Form from './Form/Form';
+
+// Components
 import Title from '../../../components/Title/Title';
 import Subtitle from '../../../components/Subtitle/Subtitle';
+import EmailForm from '../../../components/EmailForm/EmailForm';
+
+// Styles
+import * as S from './Hero.styles';
 
 export default function Hero() {
   return (
@@ -25,7 +29,7 @@ export default function Hero() {
         <Title text="Filmes, séries e muito mais. Sem limites." />
         <Subtitle text="Assista onde quiser. Cancele quando quiser." />
 
-        <Form />
+        <EmailForm />
       </S.Container>
     </>
   );
