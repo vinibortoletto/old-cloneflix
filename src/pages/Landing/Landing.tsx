@@ -6,7 +6,7 @@ import Header from './Header/Header';
 import Hero from './Hero/Hero';
 
 // Styles
-import * as S from './Landing.styles';
+import Section from './Section/Section';
 
 export default function Landing() {
   return (
@@ -15,6 +15,7 @@ export default function Landing() {
       <main>
         <Hero />
         <Separator />
+        <Section />
       </main>
     </>
   );

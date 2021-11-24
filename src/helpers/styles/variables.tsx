@@ -36,7 +36,8 @@ export const vars = {
     },
   },
   sidePadding: {
-    small: '0.5rem',
+    small: '1rem',
     big: '2.5rem',
   },
+  maxWidth: '68.75rem',
 };
