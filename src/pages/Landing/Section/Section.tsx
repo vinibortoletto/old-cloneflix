@@ -9,6 +9,7 @@ import img4 from '../../../images/misc/section-4.jpg';
 // Components
 import Title from '../../../components/Title/Title';
 import Subtitle from '../../../components/Subtitle/Subtitle';
+import Separator from '../../../components/Separator/Separator';
 
 // Styles
 import * as S from './Section.styles';
@@ -44,6 +45,7 @@ export default function Section({ id, title, subtitle, imgAlt }: Props) {
           <img src={selectImg()} alt={imgAlt} />
         </S.Image>
       </S.Container>
+      <Separator />
     </>
   );
 }

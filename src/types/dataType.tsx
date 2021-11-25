@@ -7,7 +7,7 @@ export type DataType = {
     selectInput: string;
     footer: {
       title: string;
-      navLinks: string[];
+      navList: string[];
       copyright: string;
     };
     button: string;

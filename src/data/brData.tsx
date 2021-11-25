@@ -8,7 +8,7 @@ export const brData = {
     selectInput: 'Selecione o idioma.',
     footer: {
       title: 'Dúvidas? Ligue 0800-761-4631',
-      navLinks: [
+      navList: [
         'Perguntas frequentes',
         'Conta',
         'Relações com investidores',

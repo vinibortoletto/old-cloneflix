@@ -8,7 +8,7 @@ export const enData = {
     selectInput: 'Select language.',
     footer: {
       title: 'Questions? Call 0800-761-4632',
-      navLinks: [
+      navList: [
         'FAQ',
         'Account',
         'Investor Relations',

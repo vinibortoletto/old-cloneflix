@@ -11,6 +11,7 @@ import { DataType } from '../types/dataType';
 
 type ContextValue = {
   data: DataType;
+  lang: string;
   setLang: (value: string) => void;
 };
 
@@ -22,10 +23,21 @@ type DataProviderProps = {
 
 export function DataProvider(props: DataProviderProps) {
   const { children } = props;
-  const [lang, setLang] = useState('en');
-  const [data, setData] = useState(lang === 'br' ? brData : enData);
+  const [lang, setLang] = useState<string>('en');
+  const [data, setData] = useState(enData);
 
-  const value = { data, setLang };
+  useEffect(() => {
+    const localLang = localStorage.getItem('lang');
+    if (!localLang) localStorage.setItem('lang', lang);
+    else setLang(localLang);
+  }, []);
+
+  useEffect(() => {
+    lang === 'br' && setData(brData);
+    lang === 'en' && setData(enData);
+  }, [lang]);
+
+  const value = { data, lang, setLang };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 }

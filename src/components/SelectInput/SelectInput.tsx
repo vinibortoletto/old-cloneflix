@@ -1,12 +1,16 @@
 import React from 'react';
 import { useData } from '../../contexts/Data';
+
+// Styles
 import * as S from './SelectInput.styles';
 
 export default function SelectInput() {
-  const { setLang } = useData();
+  const { lang, setLang } = useData();
 
-  function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    setLang(e.target.value);
+  async function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    const lang = e.target.value;
+    localStorage.setItem('lang', lang);
+    setLang(lang);
   }
 
   return (
@@ -16,7 +20,7 @@ export default function SelectInput() {
           <span>Selecione o idioma</span>
         </label>
 
-        <select name="lang" id="lang" onChange={handleChange}>
+        <select name="lang" id="lang" onChange={handleChange} value={lang}>
           <option value="br">Português</option>
           <option value="en">English</option>
         </select>

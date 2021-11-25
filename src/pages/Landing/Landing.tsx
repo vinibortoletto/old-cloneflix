@@ -1,10 +1,10 @@
 import React from 'react';
-import Separator from '../../components/Separator/Separator';
 import { useData } from '../../contexts/Data';
 
 // Components
 import Hero from './Hero/Hero';
 import Section from './Section/Section';
+import Separator from '../../components/Separator/Separator';
 
 export default function Landing() {
   const { data } = useData();
@@ -17,16 +17,13 @@ export default function Landing() {
 
       <div>
         {sections.map((section) => (
-          <>
-            <Section
-              key={section.id}
-              id={section.id}
-              title={section.title}
-              subtitle={section.subtitle}
-              imgAlt={section.imgAlt}
-            />
-            <Separator />
-          </>
+          <Section
+            key={section.id}
+            id={section.id}
+            title={section.title}
+            subtitle={section.subtitle}
+            imgAlt={section.imgAlt}
+          />
         ))}
       </div>
     </>
