@@ -5,6 +5,7 @@ import { AppRoutes } from './routes';
 // Styles
 import { GlobalStyles } from './helpers/styles/GlobalStyles';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 export default function App() {
   const pathname = useLocation().pathname;
@@ -16,7 +17,7 @@ export default function App() {
       <main>
         <AppRoutes />
       </main>
-      <footer></footer>
+      <Footer />
     </>
   );
 }
