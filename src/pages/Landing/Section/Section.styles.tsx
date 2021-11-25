@@ -16,10 +16,15 @@ export const Container = styled.section`
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 3rem;
+
+    &:nth-child(3),
+    &:nth-child(7) {
+      .text {
+        order: 2;
+      }
+    }
   }
 `;
-
-export const Text = styled.div``;
 
 export const Image = styled.div`
   img {

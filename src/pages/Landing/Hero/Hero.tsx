@@ -12,8 +12,12 @@ import EmailForm from '../../../components/EmailForm/EmailForm';
 
 // Styles
 import * as S from './Hero.styles';
+import { useData } from '../../../contexts/Data';
 
 export default function Hero() {
+  const { data } = useData();
+  const { title, subtitle, bgImgAlt } = data.landing.hero;
+
   return (
     <>
       <S.Container>
@@ -22,12 +26,12 @@ export default function Hero() {
           <img
             src={bgImgSmall}
             srcSet={`${bgImgSmall} 1000vw, ${bgImgMedium} 1500vw, ${bgImgLarge} 1800vw`}
-            alt="um display de vários posters de filmes"
+            alt={bgImgAlt}
           />
         </S.BgImg>
 
-        <Title text="Filmes, séries e muito mais. Sem limites." />
-        <Subtitle text="Assista onde quiser. Cancele quando quiser." />
+        <Title text={title} />
+        <Subtitle text={subtitle} />
 
         <EmailForm />
       </S.Container>
