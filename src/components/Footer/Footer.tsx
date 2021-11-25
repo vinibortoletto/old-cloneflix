@@ -4,11 +4,11 @@ import * as S from './Footer.styles';
 
 export default function Footer() {
   const { data } = useData();
-  const { copyright, navList, title } = data.component.footer;
+  const { copyright, navList, title } = data.components.footer;
 
   return (
     <>
-      <S.Container>
+      <S.Container id="footer">
         <S.Title>{title}</S.Title>
 
         <S.NavList>

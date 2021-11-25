@@ -16,7 +16,7 @@ import { useData } from '../../../contexts/Data';
 
 export default function Hero() {
   const { data } = useData();
-  const { title, subtitle, bgImgAlt } = data.landing.hero;
+  const { title, subtitle, bgImgAlt } = data.pages.landing.hero;
 
   return (
     <>

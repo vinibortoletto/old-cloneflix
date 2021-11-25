@@ -1,7 +1,7 @@
 import styled from 'styled-components/macro';
 import { vars } from '../../helpers/styles/variables';
 
-export const Container = styled.div`
+export const Container = styled.footer`
   max-width: 1000px;
   margin: auto;
 

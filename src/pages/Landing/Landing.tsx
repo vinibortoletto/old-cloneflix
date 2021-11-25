@@ -9,7 +9,7 @@ import Faq from './Faq/Faq';
 
 export default function Landing() {
   const { data } = useData();
-  const { sections } = data.landing;
+  const { sections } = data.pages.landing;
 
   return (
     <>

@@ -1,5 +1,5 @@
 export type DataType = {
-  component: {
+  components: {
     formEmail: {
       title: string;
       button: string;
@@ -12,25 +12,33 @@ export type DataType = {
     };
     button: string;
   };
-  landing: {
-    hero: {
-      title: string;
-      subtitle: string;
-      bgImgAlt: string;
-    };
-    sections: {
-      id: number;
-      title: string;
-      subtitle: string;
-      imgAlt: string;
-    }[];
-    faq: {
-      title: string;
-      questions: {
+  pages: {
+    landing: {
+      hero: {
+        title: string;
+        subtitle: string;
+        bgImgAlt: string;
+      };
+      sections: {
         id: number;
         title: string;
-        answer: string[];
+        subtitle: string;
+        imgAlt: string;
       }[];
+      faq: {
+        title: string;
+        questions: {
+          id: number;
+          title: string;
+          answer: string[];
+        }[];
+      };
+    };
+    notFound: {
+      title: string;
+      subtitle: string;
+      button: string;
+      codeError: string;
     };
   };
 };

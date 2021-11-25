@@ -7,7 +7,7 @@ import EmailForm from '../../../components/EmailForm/EmailForm';
 
 export default function Faq() {
   const { data } = useData();
-  const { questions, title } = data.landing.faq;
+  const { questions, title } = data.pages.landing.faq;
 
   function handleClick(e: React.MouseEvent<HTMLDivElement>, id: number) {
     const elmtTitle = e.target as HTMLDivElement;
