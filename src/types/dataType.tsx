@@ -26,18 +26,11 @@ export type DataType = {
     }[];
     faq: {
       title: string;
-      questions: (
-        | {
-            id: number;
-            title: string;
-            answer: string[];
-          }
-        | {
-            id: number;
-            title: string;
-            answer: string;
-          }
-      )[];
+      questions: {
+        id: number;
+        title: string;
+        answer: string[];
+      }[];
     };
   };
 };
