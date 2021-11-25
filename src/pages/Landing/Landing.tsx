@@ -5,6 +5,7 @@ import { useData } from '../../contexts/Data';
 import Hero from './Hero/Hero';
 import Section from './Section/Section';
 import Separator from '../../components/Separator/Separator';
+import Faq from './Faq/Faq';
 
 export default function Landing() {
   const { data } = useData();
@@ -26,6 +27,9 @@ export default function Landing() {
           />
         ))}
       </div>
+
+      <Faq />
+      <Separator />
     </>
   );
 }

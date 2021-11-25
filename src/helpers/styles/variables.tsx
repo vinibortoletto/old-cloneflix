@@ -2,6 +2,7 @@ export const vars = {
   color: {
     red: '#E50914',
     darkGrey: '#141414',
+    grey: '#303030',
     mediumGrey: '#9b9b9b',
     lightGrey: 'lightgrey',
     blue: '#0071eb',

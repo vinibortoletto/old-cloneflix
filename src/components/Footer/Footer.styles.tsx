@@ -2,6 +2,9 @@ import styled from 'styled-components/macro';
 import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.div`
+  max-width: 1000px;
+  margin: auto;
+
   color: ${vars.color.mediumGrey};
   padding: 3rem 2rem;
 `;
@@ -13,7 +16,7 @@ export const Title = styled.h1`
 
 export const NavList = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
   font-size: ${vars.fontSize.default.tiny};
   margin-bottom: 3rem;
