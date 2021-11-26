@@ -6,6 +6,7 @@ export const Container = styled.div`
   height: 100vh;
   max-width: 30rem;
   margin: auto;
+  padding: ${vars.sidePadding.small};
 
   h1 {
     font-size: 2.5rem;
@@ -27,9 +28,9 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   padding: ${vars.sidePadding.small};
   border-radius: ${vars.borderRadius};
+  background-color: rgba(0, 0, 0, 0.7);
 
   ${media(DisplaySize.Tablet)} {
-    background-color: rgba(0, 0, 0, 0.7);
     padding: 3rem;
   }
 `;

@@ -8,14 +8,14 @@ import BgImg from '../../components/BgImg/BgImg';
 import { Link } from 'react-router-dom';
 
 export default function Login() {
-  const { lang, data } = useData();
+  const { data } = useData();
   const { noAcc, signUp, title } = data.pages.login;
 
   return (
     <>
       <S.Container>
         <S.Wrapper className="wrapper">
-          <BgImg login />
+          <BgImg />
           <Title text={title} />
 
           <RegistrationForm />

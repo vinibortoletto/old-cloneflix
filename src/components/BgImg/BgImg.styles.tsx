@@ -2,7 +2,7 @@ import styled from 'styled-components/macro';
 import { DisplaySize, media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
-export const Container = styled.div<{ login: boolean }>`
+export const Container = styled.div<{ pathname: string }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -23,6 +23,7 @@ export const Container = styled.div<{ login: boolean }>`
   img {
     width: 100%;
     height: ${vars.size.heroBgImg.small};
+    height: ${(props) => props.pathname === '/login' && '100vh'};
     object-fit: cover;
 
     ${media(550)} {
@@ -33,12 +34,4 @@ export const Container = styled.div<{ login: boolean }>`
       height: ${vars.size.heroBgImg.medium};
     }
   }
-
-  ${(props) =>
-    props.login &&
-    `
-      img {
-        height: 100vh;
-      }
-    `}
 `;

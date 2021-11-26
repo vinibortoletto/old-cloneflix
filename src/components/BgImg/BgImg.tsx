@@ -8,16 +8,16 @@ import bgImgLarge from '../../images/misc/bg-large.jpg';
 
 // Contexts
 import { useData } from '../../contexts/Data';
+import { useLocation } from 'react-router';
 
-type Props = { login?: boolean };
-
-export default function BgImg({ login }: Props) {
+export default function BgImg() {
   const { data } = useData();
   const { bgImgAlt } = data.pages.landing.hero;
+  const pathname = useLocation().pathname;
 
   return (
     <>
-      <S.Container login>
+      <S.Container pathname={pathname}>
         <div className="shadow" />
         <img
           src={bgImgSmall}
