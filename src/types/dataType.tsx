@@ -56,5 +56,9 @@ export type DataType = {
       button: string;
       codeError: string;
     };
+    signup: {
+      title: string;
+      subtitle: string;
+    };
   };
 };

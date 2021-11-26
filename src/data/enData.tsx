@@ -150,5 +150,10 @@ export const enData = {
       button: 'Netflix Home',
       codeError: 'Error Code',
     },
+    signup: {
+      title: 'Create a password to start your membership',
+      subtitle:
+        "Just a few more steps and you're done! We hate paperwork, too.",
+    },
   },
 };

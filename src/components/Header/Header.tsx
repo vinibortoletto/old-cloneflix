@@ -11,9 +11,11 @@ import NavIcons from './NavIcons/NavIcons';
 import SelectInput from '../SelectInput/SelectInput';
 import Button, { ButtonTypes } from '../Button/Button';
 import { Link } from 'react-router-dom';
+import { useData } from '../../contexts/Data';
 
 export default function Header() {
   const pathname = useLocation().pathname;
+  const { lang } = useData();
 
   return (
     <>
@@ -33,7 +35,7 @@ export default function Header() {
           {(pathname === '/' || pathname === '/signup') && (
             <>
               <Button type={ButtonTypes.Button}>
-                <Link to="/login">Entrar</Link>
+                <Link to="/login">{lang === 'br' ? 'Entrar' : 'Sign in'}</Link>
               </Button>
             </>
           )}

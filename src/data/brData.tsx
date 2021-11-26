@@ -149,5 +149,10 @@ export const brData = {
       button: 'Página inicial da Netflix',
       codeError: 'Código de erro',
     },
+    signup: {
+      title: 'Crie um senha para iniciar sua assinatura',
+      subtitle:
+        'Faltam só mais alguns passos! Nós também detestamos formulários.',
+    },
   },
 };
