@@ -1,14 +1,20 @@
 import styled from 'styled-components/macro';
 import { DisplaySize, media } from '../../../helpers/styles/mixins';
 
-export const Container = styled.img`
+export const Container = styled.img<{ pathname: string }>`
   width: 6rem;
 
   ${media(550)} {
-    width: 9rem;
+    width: ${(props) =>
+      props.pathname !== '/browse' &&
+      props.pathname !== '/your-account' &&
+      '9rem'};
   }
 
   ${media(DisplaySize.Laptop)} {
-    width: 13rem;
+    width: ${(props) =>
+      props.pathname !== '/browse' &&
+      props.pathname !== '/your-account' &&
+      '13rem'};
   }
 `;

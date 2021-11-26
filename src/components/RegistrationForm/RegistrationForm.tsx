@@ -14,12 +14,8 @@ export default function RegistrationForm() {
   return (
     <>
       <S.Container>
-        <Input id="email" label="Email" type="email" />
-        <Input
-          id="password"
-          label={lang === 'br' ? 'Senha' : 'Password'}
-          type="password"
-        />
+        <Input id="email" type="email" />
+        <Input id="password" type="password" />
         <Button type={ButtonTypes.Submit}>
           {pathname === '/login' ? login : signup}
         </Button>

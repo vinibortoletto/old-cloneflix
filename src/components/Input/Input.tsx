@@ -5,11 +5,10 @@ import * as S from './Input.styles';
 
 type Props = {
   id: string;
-  label: string;
   type: string;
 };
 
-export default function Input({ id, label, type }: Props) {
+export default function Input({ id, type }: Props) {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const { data } = useData();
@@ -55,7 +54,9 @@ export default function Input({ id, label, type }: Props) {
     <>
       <S.Container>
         <div>
-          <S.Label htmlFor={id}>{label}</S.Label>
+          <S.Label htmlFor={id}>
+            {type === 'email' ? input.email.label : input.password.label}
+          </S.Label>
           <S.Input
             id={id}
             type={type}

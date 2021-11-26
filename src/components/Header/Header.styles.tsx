@@ -23,14 +23,20 @@ export const Container = styled.div<Props>`
   }
 
   ${media(DisplaySize.Tablet)} {
-    height: ${vars.size.header.big};
+    height: ${(props) =>
+      props.pathname !== '/your-account' &&
+      props.pathname !== '/browse' &&
+      `${vars.size.header.big}`};
   }
 
   ${(props) =>
     props.pathname === '/signup' &&
-    `
-      border-bottom: 1px solid ${vars.color.lightGrey};
-  `}
+    `border-bottom: 1px solid ${vars.color.lightGrey};`}
+
+  ${(props) =>
+    (props.pathname === '/your-account' || props.pathname === '/browse') &&
+    `background-color: ${vars.color.black}};
+     display: flex;`}
 `;
 
 export const Wrapper = styled.div<Props>`
@@ -39,13 +45,17 @@ export const Wrapper = styled.div<Props>`
   ${(props) =>
     props.pathname === '/signup' &&
     ` button {
-    background-color: transparent;
-    color: ${vars.color.black};
-    font-weight: bold;
-    font-size: ${vars.fontSize.default.big};
+        background-color: transparent;
+        color: ${vars.color.black};
+        font-weight: bold;
+        font-size: ${vars.fontSize.default.big};
 
     &:hover {
       text-decoration: underline;
     }
   }`}
+
+  display: ${(props) =>
+    (props.pathname === '/your-account' || props.pathname === '/browse') &&
+    'none'};
 `;

@@ -14,7 +14,7 @@ export default function EmailForm() {
         </S.Title>
 
         <S.Wrapper className="wrapper">
-          <Input id="email" label="Email" type="email" />
+          <Input id="email" type="email" />
 
           <Button type={ButtonTypes.Submit}>
             <span>Vamos lá</span>

@@ -29,6 +29,8 @@ export default function Header() {
           </>
         )}
 
+        {pathname === '/your-account' && <NavIcons />}
+
         <S.Wrapper pathname={pathname}>
           {pathname === '/' && <SelectInput />}
 
