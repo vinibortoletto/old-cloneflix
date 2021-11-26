@@ -29,36 +29,3 @@ export const Container = styled.div`
     margin-top: 10rem;
   }
 `;
-
-export const BgImg = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-
-  .shadow {
-    position: inherit;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      rgba(0, 0, 0, 0.8),
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.8)
-    );
-  }
-
-  img {
-    width: 100%;
-    height: ${vars.size.heroBgImg.small};
-    object-fit: cover;
-
-    ${media(550)} {
-      height: ${vars.size.heroBgImg.big};
-    }
-
-    ${media(DisplaySize.Laptop)} {
-      height: ${vars.size.heroBgImg.medium};
-    }
-  }
-`;
