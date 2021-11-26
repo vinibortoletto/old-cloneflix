@@ -31,6 +31,22 @@ export const enData = {
         to Netflix`,
     },
     button: 'Sign in',
+    input: {
+      email: {
+        label: 'Email',
+        error: {
+          empty: 'Email is required.',
+          invalid: 'Enter a valid email.',
+        },
+      },
+      password: {
+        label: 'Password',
+        error: {
+          empty: 'Password is required.',
+          invalid: 'Password must have at least 6 digits.',
+        },
+      },
+    },
   },
   pages: {
     landing: {

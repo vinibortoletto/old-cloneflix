@@ -11,6 +11,22 @@ export type DataType = {
       copyright: string;
     };
     button: string;
+    input: {
+      email: {
+        label: string;
+        error: {
+          empty: string;
+          invalid: string;
+        };
+      };
+      password: {
+        label: string;
+        error: {
+          empty: string;
+          invalid: string;
+        };
+      };
+    };
   };
   pages: {
     landing: {

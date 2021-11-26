@@ -31,6 +31,22 @@ export const brData = {
         reservados a Netflix.`,
     },
     button: 'Entrar',
+    input: {
+      email: {
+        label: 'Email',
+        error: {
+          empty: 'O email é obrigatório.',
+          invalid: 'Digite um email válido.',
+        },
+      },
+      password: {
+        label: 'Senha',
+        error: {
+          empty: 'A senha é obrigatório.',
+          invalid: 'Senha deve ter pelo menos 6 digitos.',
+        },
+      },
+    },
   },
   pages: {
     landing: {
