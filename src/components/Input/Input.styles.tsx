@@ -45,13 +45,17 @@ export const Input = styled.input<Props>`
 
   color: ${vars.color.black};
   background-color: ${vars.color.white};
-
-  border: 1px solid ${vars.color.mediumGrey};
   border-bottom: ${(props) => props.error && `4px solid ${vars.color.orange}`};
+
+  /* Signup and Your Account varitation  */
   border: ${(props) =>
     props.error &&
     (props.pathname === '/signup' || props.pathname === '/your-account') &&
     `1px solid ${vars.color.red}`};
+  border: ${(props) =>
+    !props.error &&
+    (props.pathname === '/signup' || props.pathname === '/your-account') &&
+    `1px solid ${vars.color.mediumGrey}`};
 `;
 
 export const Error = styled.p<{ pathname: string }>`

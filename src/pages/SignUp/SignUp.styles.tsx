@@ -4,7 +4,7 @@ import { vars } from '../../helpers/styles/variables';
 export const Container = styled.div`
   max-width: 30rem;
   margin: auto;
-  padding: 3rem ${vars.sidePadding.big};
+  padding: 5rem ${vars.sidePadding.big};
   color: ${vars.color.black};
   text-align: left;
 `;

@@ -47,6 +47,10 @@ export const brData = {
         },
       },
     },
+    registrationForm: {
+      login: 'Entrar',
+      signup: 'Cadastrar',
+    },
   },
   pages: {
     landing: {
@@ -153,6 +157,11 @@ export const brData = {
       title: 'Crie um senha para iniciar sua assinatura',
       subtitle:
         'Faltam só mais alguns passos! Nós também detestamos formulários.',
+    },
+    login: {
+      title: 'Entrar',
+      noAcc: 'Novo na Netflix?',
+      signUp: 'Cadastre-se agora',
     },
   },
 };

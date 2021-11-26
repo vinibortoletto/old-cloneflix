@@ -47,6 +47,10 @@ export const enData = {
         },
       },
     },
+    registrationForm: {
+      login: 'Sign in',
+      signup: 'Sign up',
+    },
   },
   pages: {
     landing: {
@@ -154,6 +158,11 @@ export const enData = {
       title: 'Create a password to start your membership',
       subtitle:
         "Just a few more steps and you're done! We hate paperwork, too.",
+    },
+    login: {
+      title: 'Sign in',
+      noAcc: 'New to Netflix?',
+      signUp: 'Sign up now',
     },
   },
 };

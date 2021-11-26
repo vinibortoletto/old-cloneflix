@@ -27,6 +27,10 @@ export type DataType = {
         };
       };
     };
+    registrationForm: {
+      login: string;
+      signup: string;
+    };
   };
   pages: {
     landing: {
@@ -59,6 +63,11 @@ export type DataType = {
     signup: {
       title: string;
       subtitle: string;
+    };
+    login: {
+      title: string;
+      noAcc: string;
+      signUp: string;
     };
   };
 };
