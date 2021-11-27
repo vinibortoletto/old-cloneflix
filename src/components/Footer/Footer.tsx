@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 import { useData } from '../../contexts/Data';
+import SelectInput from '../SelectInput/SelectInput';
 import * as S from './Footer.styles';
 
 export default function Footer() {
@@ -18,6 +19,8 @@ export default function Footer() {
             <li key={index}>{item}</li>
           ))}
         </S.NavList>
+
+        <SelectInput footer />
 
         <S.Copyright>{copyright}</S.Copyright>
       </S.Container>

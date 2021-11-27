@@ -34,4 +34,5 @@ export const NavList = styled.ul`
 export const Copyright = styled.p`
   text-align: center;
   font-size: ${vars.fontSize.default.tiny};
+  margin-top: 2rem;
 `;

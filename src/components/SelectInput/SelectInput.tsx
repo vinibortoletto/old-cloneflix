@@ -1,11 +1,18 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 import { useData } from '../../contexts/Data';
 
 // Styles
 import * as S from './SelectInput.styles';
 
-export default function SelectInput() {
-  const { lang, setLang } = useData();
+type Props = {
+  footer?: boolean;
+};
+
+export default function SelectInput({ footer }: Props) {
+  const { lang, setLang, data } = useData();
+  const { selectInput } = data.components;
+  const pathname = useLocation().pathname;
 
   async function handleChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const lang = e.target.value;
@@ -15,15 +22,15 @@ export default function SelectInput() {
 
   return (
     <>
-      <S.Container>
-        <label htmlFor="lang">
-          <span>Selecione o idioma</span>
-        </label>
+      <S.Container pathname={pathname} footer={footer}>
+        <S.Label htmlFor="lang">
+          <span>{selectInput}</span>
+        </S.Label>
 
-        <select name="lang" id="lang" onChange={handleChange} value={lang}>
+        <S.Select name="lang" id="lang" onChange={handleChange} value={lang}>
           <option value="br">Português</option>
           <option value="en">English</option>
-        </select>
+        </S.Select>
       </S.Container>
     </>
   );
