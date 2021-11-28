@@ -81,6 +81,10 @@ export const Container = styled.div<Props>`
       &::before {
         top: 0.55rem;
         left: 0.6rem;
+
+        @-moz-document url-prefix() {
+          top: .75rem;
+        }
       }
 
       &::after {

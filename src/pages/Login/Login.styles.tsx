@@ -18,6 +18,7 @@ export const Container = styled.div`
 
   input {
     background-color: ${vars.color.grey};
+    color: ${vars.color.white};
   }
 
   button {
