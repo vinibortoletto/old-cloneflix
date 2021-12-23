@@ -9,6 +9,16 @@ export const Container = styled.form`
 
   ${media(DisplaySize.Laptop)} {
     max-width: 100%;
+
+    input {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 `;
 
