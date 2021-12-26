@@ -3,7 +3,7 @@ export const vars = {
     red: '#E50914',
     darkGrey: '#141414',
     grey: '#303030',
-    mediumGrey: '#9b9b9b',
+    mediumGrey: '#868686',
     lightGrey: 'lightgrey',
     blue: '#0071eb',
     white: '#ffffff',

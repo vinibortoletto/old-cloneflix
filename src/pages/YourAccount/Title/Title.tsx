@@ -1,5 +1,5 @@
 import React from 'react';
-import { FcCalendar } from 'react-icons/fc';
+import { BsCalendarDay } from 'react-icons/bs';
 import * as S from './Title.styles';
 
 export default function Title() {
@@ -8,7 +8,7 @@ export default function Title() {
       <S.Container>
         <h1>Conta</h1>
         <div>
-          <FcCalendar />
+          <BsCalendarDay />
           <p>Assinante desde Agosto 2016</p>
         </div>
       </S.Container>

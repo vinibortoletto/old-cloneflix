@@ -1,9 +1,14 @@
 import styled from 'styled-components/macro';
+import { DisplaySize, media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.div`
-  color: ${vars.color.black};
   padding: 2rem ${vars.sidePadding.small};
+  color: ${vars.color.black};
+
+  ${media(DisplaySize.Tablet)} {
+    padding: 2rem ${vars.sidePadding.big};
+  }
 `;
 
 export const Line = styled.div`

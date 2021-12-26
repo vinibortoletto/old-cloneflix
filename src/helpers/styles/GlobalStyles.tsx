@@ -13,8 +13,9 @@ export const GlobalStyles = createGlobalStyle<Props>`
   body {
     background-color: ${vars.color.black};
     background-color: ${(props) =>
-      (props.pathname === '/signup' || props.pathname === '/your-account') &&
-      `${vars.color.white}`};
+      props.pathname === '/signup' && `${vars.color.white}`};
+      background-color: ${(props) =>
+        props.pathname === '/your-account' && '#F3F3F3'};
     background-color: ${(props) =>
       props.pathname === '/browse' && `${vars.color.darkGrey}`};
 

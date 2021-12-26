@@ -5,9 +5,10 @@ export const Container = styled.div`
   padding: 2rem ${vars.sidePadding.small};
   margin-top: 2rem;
   border: 1px solid ${vars.color.mediumGrey};
+  background-color: ${vars.color.white};
 
   h1 {
-    color: ${vars.color.mediumGrey};
+    color: ${vars.color.grey};
     font-size: ${vars.fontSize.default.big};
     margin-bottom: 1rem;
   }

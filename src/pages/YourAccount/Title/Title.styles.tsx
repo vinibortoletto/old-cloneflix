@@ -18,6 +18,7 @@ export const Container = styled.div`
     svg {
       font-size: 1.5rem;
       margin-right: 0.5rem;
+      color: ${vars.color.red};
     }
   }
 `;
