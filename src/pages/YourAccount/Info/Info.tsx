@@ -1,48 +1,44 @@
 import React from 'react';
-import Button, { ButtonTypes } from '../../../components/Button/Button';
-import Input from '../../../components/Input/Input';
 import * as S from './Info.styles';
-import UpdateInfo from './UpdateInfo/UpdateInfo';
-import UpdateInfoForm from './UpdateInfoForm/UpdateInfoForm';
+import DeleteAccountPopUp from './DeleteAccountPopUp/DeleteAccountPopUp';
+import { useAuth } from '../../../contexts/Auth';
+import UpdateAccountPopUp from './UpdateAccountPopUp/UpdateAccountPopUp';
 
 export default function Info() {
-  function showForm(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    const btnElmt = e.target as HTMLButtonElement;
-    const formElmt = btnElmt.parentElement?.nextSibling as HTMLFormElement;
-    formElmt.classList.add('show');
-  }
-
-  function hideForm(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    const btnElmt = e.target as HTMLButtonElement;
-    const formElmt = btnElmt.parentElement as HTMLFormElement;
-    formElmt.classList.remove('show');
-  }
+  const { isDeleting, setIsDeleting, isUpdating, setIsUpdating } = useAuth();
 
   return (
     <S.Container>
-      <section>
-        <S.AccountTitle>Informações da conta</S.AccountTitle>
-        <S.AccountEmail>
-          <UpdateInfo
-            infoTitle="Email"
-            infoContent="ovinibortoletto@gmail.com"
-            buttonText="Alterar email"
-            showForm={showForm}
-          />
-          <UpdateInfoForm hideForm={hideForm} id="email" />
-        </S.AccountEmail>
+      <S.Title>Informações da conta</S.Title>
 
-        <S.AccountPassword>
-          <UpdateInfo
-            infoTitle="Senha"
-            infoContent="******"
-            buttonText="Alterar senha"
-            showForm={showForm}
-          />
+      <S.UserInfo>
+        <p>
+          Email: <span>ovinibortoletto@gmail.com</span>
+        </p>
+        <p>
+          Senha: <span>*********</span>
+        </p>
+      </S.UserInfo>
 
-          <UpdateInfoForm hideForm={hideForm} id="password" />
-        </S.AccountPassword>
-      </section>
+      <S.ButtonsContainer>
+        <button
+          className="delete-btn"
+          type="button"
+          onClick={() => setIsDeleting(true)}
+        >
+          Excluir conta
+        </button>
+        <button
+          className="update-btn"
+          type="button"
+          onClick={() => setIsUpdating(true)}
+        >
+          Atualizar cadastro
+        </button>
+      </S.ButtonsContainer>
+
+      {isDeleting && <DeleteAccountPopUp />}
+      {isUpdating && <UpdateAccountPopUp />}
     </S.Container>
   );
 }

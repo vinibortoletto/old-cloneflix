@@ -6,8 +6,8 @@ export const Container = styled.button`
   padding: 0 0.7rem;
   border-radius: ${vars.borderRadius};
 
-  &[type='reset'] {
-    background-color: ${vars.color.lightGrey};
-    color: ${vars.color.mediumGrey};
+  &.grey {
+    background-color: ${vars.color.mediumGrey};
+    color: ${vars.color.darkGrey};
   }
 `;

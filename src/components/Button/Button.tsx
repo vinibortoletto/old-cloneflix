@@ -11,6 +11,7 @@ type Props = {
   type: ButtonTypes | undefined;
   children: ReactNode;
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  className?: string;
 };
 
 export default function Button({ children, ...props }: Props) {

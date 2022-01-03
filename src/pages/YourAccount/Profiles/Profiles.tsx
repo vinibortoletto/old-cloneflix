@@ -11,30 +11,30 @@ export default function Profiles() {
   return (
     <>
       <S.Container>
-        <h1>Perfis</h1>
+        <S.Title>Perfis</S.Title>
 
         <S.List>
           <li>
-            <div>
+            <S.UserInfo>
               <img src={user} alt="" />
               <h2>Vinicius</h2>
-            </div>
+            </S.UserInfo>
             <Link to="/profiles/manage">Editar</Link>
           </li>
 
           <li>
-            <div>
+            <S.UserInfo>
               <img src={user} alt="" />
               <h2>Vinicius</h2>
-            </div>
+            </S.UserInfo>
             <Link to="/profiles/manage">Editar</Link>
           </li>
 
           <li>
-            <div>
+            <S.UserInfo>
               <img src={user} alt="" />
               <h2>Vinicius</h2>
-            </div>
+            </S.UserInfo>
             <Link to="/profiles/manage">Editar</Link>
           </li>
         </S.List>

@@ -1,34 +1,65 @@
-export {}
+import React, { useContext, createContext, useState, ReactNode } from 'react';
+// import { auth } from '../libs/firebase';
+// import firebase from 'firebase';
 
-// import React, {
-//   useContext,
-//   createContext,
-//   useState,
-//   useEffect,
-//   ReactNode,
-//   useReducer,
-// } from 'react'
-// import { auth } from '../libs/firebase'
-// import firebase from 'firebase'
-// import { Statement } from 'typescript'
+type ContextValue = {
+  isDeleting: boolean;
+  setIsDeleting: (value: boolean) => void;
+  isUpdating: boolean;
+  setIsUpdating: (value: boolean) => void;
 
-// const AuthContext = createContext(undefined)
+  email: string;
+  setEmail: (value: string) => void;
+  emailError: string;
+  setEmailError: (value: string) => void;
 
-// type AuthProviderProps = {
-//   children: ReactNode
-// }
+  password: string;
+  setPassword: (value: string) => void;
+  passwordError: string;
+  setPasswordError: (value: string) => void;
+};
 
-// export function useAuth() {
-//   return useContext(AuthContext)
-// }
+const AuthContext = createContext<ContextValue | undefined>(undefined);
 
-// export function AuthProvider({ children }: AuthProviderProps) {
-//   // const [state, setState] = useState()
+type AuthProviderProps = {
+  children: ReactNode;
+};
 
-//   function login(email: string, password: string) {
-//     return signInWithEmailAndPassword(auth, email, password)
-//   }
-//   const value = { state, dispatch }
+export function AuthProvider({ children }: AuthProviderProps) {
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
-//   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
-// }
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
+  const value = {
+    isDeleting,
+    setIsDeleting,
+    isUpdating,
+    setIsUpdating,
+
+    email,
+    setEmail,
+    emailError,
+    setEmailError,
+
+    password,
+    setPassword,
+    passwordError,
+    setPasswordError,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+
+  if (typeof context === 'undefined') {
+    throw new Error('useAuth must be used within AuthContext');
+  }
+
+  return context;
+}
