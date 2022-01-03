@@ -5,7 +5,7 @@ export const Container = styled.div`
   max-width: 30rem;
   margin: auto;
   padding: 5rem ${vars.sidePadding.big};
-  color: ${vars.color.black};
+  color: ${vars.color.white};
   text-align: left;
 `;
 

@@ -31,7 +31,7 @@ export const Container = styled.div<Props>`
 
   ${(props) =>
     props.pathname === '/signup' &&
-    `border-bottom: 1px solid ${vars.color.lightGrey};`}
+    `border-bottom: 1px solid ${vars.color.grey};`}
 
   ${(props) =>
     (props.pathname === '/your-account' || props.pathname === '/browse') &&

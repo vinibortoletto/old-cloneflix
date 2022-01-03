@@ -10,23 +10,22 @@ type Props = {
 export const GlobalStyles = createGlobalStyle<Props>`
   ${ResetStyles};
 
+
   body {
     background-color: ${vars.color.black};
-    background-color: ${(props) =>
-      props.pathname === '/signup' && `${vars.color.white}`};
-      background-color: ${(props) =>
-        props.pathname === '/your-account' && '#F3F3F3'};
     background-color: ${(props) =>
       props.pathname === '/browse' && `${vars.color.darkGrey}`};
 
     color: ${vars.color.white};
-    font-family: sans-serif;
     font-size: ${vars.fontSize.default.small};
+    font-family: sans-serif;
+
 
     ${media(550)} {
     font-size: ${vars.fontSize.default.big};
     }
   }
+
 
   button, select {
     background-color: transparent;

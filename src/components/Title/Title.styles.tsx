@@ -6,6 +6,7 @@ export const Container = styled.h1`
   font-size: ${vars.fontSize.title.small};
   font-weight: bold;
   margin-bottom: 1rem;
+  color: ${vars.color.white};
 
   ${media(550)} {
     font-size: ${vars.fontSize.title.big};

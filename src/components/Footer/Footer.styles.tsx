@@ -1,4 +1,5 @@
 import styled from 'styled-components/macro';
+import { media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.footer<{ pathname: string }>`
@@ -6,16 +7,18 @@ export const Container = styled.footer<{ pathname: string }>`
   margin: auto;
 
   color: ${vars.color.mediumGrey};
-  padding: 3rem 2rem;
+  padding: 3rem ${vars.sidePadding.small};
 
   ${(props) =>
     props.pathname === '/signup' &&
     `
       max-width: 100rem;
-      padding: 3rem 5rem;
-      background-color: rgba(0, 0, 0, 0.05);
-      border-top: 1px solid ${vars.color.lightGrey};
+      border-top: 1px solid ${vars.color.grey};
     `}
+
+  ${media(550)} {
+    padding: 3rem ${vars.sidePadding.big};
+  }
 `;
 
 export const Title = styled.h1`
