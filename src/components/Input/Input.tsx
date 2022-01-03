@@ -1,5 +1,6 @@
-import React, { FocusEvent, ChangeEvent, useState } from 'react';
+import React, { FocusEvent, ChangeEvent, useState, useEffect } from 'react';
 import { useLocation } from 'react-router';
+import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
 import * as S from './Input.styles';
 
@@ -9,9 +10,17 @@ type Props = {
 };
 
 export default function Input({ id, type }: Props) {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
   const { data } = useData();
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    emailError,
+    setEmailError,
+    passwordError,
+    setPasswordError,
+  } = useAuth();
   const { input } = data.components;
   const pathname = useLocation().pathname;
 
@@ -26,29 +35,75 @@ export default function Input({ id, type }: Props) {
     }
   }
 
-  function handleError(text: string) {
+  function handleError(text: string, field: EventTarget & HTMLInputElement) {
     const emailRegex =
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     // Email validation
     if (type === 'email') {
-      if (text === '') return setError(input.email.error.empty);
-      if (!emailRegex.test(text)) return setError(input.email.error.invalid);
+      if (pathname === '/your-account') {
+        // Updating account
+        if (text !== '' && !emailRegex.test(text)) {
+          field.classList.add('error');
+          return setEmailError(input.email.error.invalid);
+        }
+      } else {
+        // Login and Signup
+        if (text === '') {
+          field.classList.add('error');
+          return setEmailError(input.email.error.empty);
+        }
+        if (!emailRegex.test(text)) {
+          field.classList.add('error');
+          return setEmailError(input.email.error.invalid);
+        }
+      }
+      setEmailError('');
+      field.classList.remove('error');
     }
 
     // Password validation
     if (type === 'password') {
-      if (text === '') return setError(input.password.error.empty);
-      if (text.length < 6) return setError(input.password.error.invalid);
-    }
+      if (pathname === '/your-account') {
+        // Updating account
+        if (text !== '' && text.length < 6) {
+          field.classList.add('error');
+          return setPasswordError(input.password.error.invalid);
+        }
+      } else {
+        // Login and Signup
+        if (text === '') {
+          field.classList.add('error');
+          return setPasswordError(input.password.error.empty);
+        }
+        if (text.length < 6) {
+          field.classList.add('error');
+          return setPasswordError(input.password.error.invalid);
+        }
+      }
 
-    setError('');
+      setPasswordError('');
+      field.classList.remove('error');
+    }
   }
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    setEmail(e.target.value);
-    handleError(e.target.value);
+    const field = e.target;
+    const text = field.value;
+
+    if (type === 'email') setEmail(text);
+    else setPassword(text);
+
+    handleError(text, field);
   }
+
+  useEffect(() => {
+    // Clean fields when route changes
+    setEmail('');
+    setEmailError('');
+    setPassword('');
+    setPasswordError('');
+  }, [pathname]);
 
   return (
     <>
@@ -63,12 +118,10 @@ export default function Input({ id, type }: Props) {
             onFocus={animateText}
             onBlur={animateText}
             onChange={handleChange}
-            value={email}
-            error={error !== '' && true}
-            pathname={pathname}
+            value={type === 'email' ? email : password}
           />
         </div>
-        <S.Error pathname={pathname}>{error}</S.Error>
+        <S.Error>{type === 'email' ? emailError : passwordError}</S.Error>
       </S.Container>
     </>
   );

@@ -2,10 +2,11 @@ import styled from 'styled-components/macro';
 import { media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
-type Props = {
-  pathname: string;
-  error: boolean;
-};
+// type Props = {
+//   pathname: string;
+//   error: boolean;
+//   className: string;
+// };
 
 export const Container = styled.div`
   width: 100%;
@@ -30,13 +31,12 @@ export const Label = styled.label`
   &.active {
     padding-top: 0.3rem;
     font-size: ${vars.fontSize.default.tiny};
-    font-weight: bold;
     top: 0;
     transform: translateY(0);
   }
 `;
 
-export const Input = styled.input<Props>`
+export const Input = styled.input`
   height: 3.5rem;
   width: 100%;
 
@@ -45,27 +45,17 @@ export const Input = styled.input<Props>`
 
   color: ${vars.color.black};
   background-color: ${vars.color.white};
-  border-bottom: ${(props) => props.error && `4px solid ${vars.color.orange}`};
 
-  /* Signup and Your Account varitation  */
-  border: ${(props) =>
-    props.error &&
-    (props.pathname === '/signup' || props.pathname === '/your-account') &&
-    `1px solid ${vars.color.red}`};
-  border: ${(props) =>
-    !props.error &&
-    (props.pathname === '/signup' || props.pathname === '/your-account') &&
-    `1px solid ${vars.color.mediumGrey}`};
+  &.error {
+    border-bottom: 4px solid ${vars.color.orange};
+  }
 `;
 
-export const Error = styled.p<{ pathname: string }>`
+export const Error = styled.p`
   margin: 0.5rem 0;
   text-align: left;
   font-size: ${vars.fontSize.default.tiny};
   color: ${vars.color.orange};
-  color: ${(props) =>
-    (props.pathname === '/signup' || props.pathname === '/your-account') &&
-    `${vars.color.red}`};
 
   ${media(550)} {
     font-size: ${vars.fontSize.default.small};
