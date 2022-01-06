@@ -1,9 +1,9 @@
 import styled from 'styled-components/macro';
-import { DisplaySize, media } from '../../helpers/styles/mixins';
+import { media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.div`
-  max-width: 73rem;
+  max-width: 1000px;
   margin: auto;
   padding: 2rem ${vars.sidePadding.small};
 
@@ -29,11 +29,4 @@ export const Shadow = styled.div`
   background-color: ${vars.color.darkGrey};
   height: 100vh;
   width: 100vw;
-`;
-
-export const Wrapper = styled.div`
-  ${media(DisplaySize.Tablet)} {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
 `;
