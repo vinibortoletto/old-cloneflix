@@ -7,6 +7,11 @@ export const Container = styled.form`
   margin: auto;
   padding: 0 ${vars.sidePadding.small};
 
+  input {
+    background-color: ${vars.color.white};
+    color: ${vars.color.black};
+  }
+
   ${media(DisplaySize.Laptop)} {
     max-width: 100%;
 

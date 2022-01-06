@@ -70,4 +70,13 @@ export type DataType = {
       signUp: string;
     };
   };
+  authErrors: {
+    invalidEmail: string;
+    emailAlreadyInUse: string;
+    userNotFound: string;
+    wrongPassword: string;
+    emptyFields: string;
+    tooManyRequests: string;
+    requiresRecentLogin: string;
+  };
 };

@@ -19,3 +19,7 @@ export const Subtitle = styled.h2`
   font-size: 1.188rem;
   margin-bottom: 1rem;
 `;
+
+export const SpinnerContainer = styled.div`
+  margin: 15rem 0;
+`;

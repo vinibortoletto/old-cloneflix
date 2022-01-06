@@ -1,52 +1,81 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { updateEmail } from 'firebase/auth';
+
+// Componetns
 import Button, { ButtonTypes } from '../../../../components/Button/Button';
 import Input from '../../../../components/Input/Input';
+import Spinner from '../../../../components/Spinner/Spinner';
+
+// Contexts
 import { useAuth } from '../../../../contexts/Auth';
-import { useData } from '../../../../contexts/Data';
+
 // Styles
 import * as S from './UpdateAccountPopUp.styles';
+import ErrorMessage from '../../../../components/ErrorMessage/ErrorMessage';
 
 export default function UpdateAccountPopUp() {
-  const { email, password, setIsUpdating } = useAuth();
-  const { data } = useData();
-  const { input } = data.components;
-  const [errorMessage, setErrorMessage] = useState('');
+  const {
+    email,
+    password,
+    setIsUpdating,
+    user,
+    setIsLoading,
+    isLoading,
+    checkAuthErrors,
+    authErrorMessage,
+    validateEmail,
+    validatePassword,
+  } = useAuth();
 
-  function handleSubmit(e: React.MouseEvent<HTMLFormElement, MouseEvent>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (email === '' || password === '') {
-      return setErrorMessage('Preencha um dos campos para atualiza-lo.');
-    }
+    validateEmail(email);
+    validatePassword(password);
 
-    setErrorMessage('');
+    if (user) {
+      if (email !== '') {
+        setIsLoading(true);
+        updateEmail(user, email)
+          .then(() => {
+            setIsLoading(false);
+            setIsUpdating(false);
+          })
+          .catch((error) => {
+            setIsLoading(false);
+            checkAuthErrors(error.code);
+          });
+      }
+    }
   }
 
   return (
     <>
-      <S.Container>
+      <S.Container id="update-account-popup">
         <S.Title>Atualização de cadastro</S.Title>
-        <S.Subtitle>
-          Deixe em branco os campos que não quiser alterar.
-        </S.Subtitle>
+        <S.Subtitle>Deixe em branco os campos que não quiser alterar.</S.Subtitle>
 
-        <form onSubmit={handleSubmit}>
-          <Input id={input.email.label} type="email" />
-          <Input id={input.password.label} type="password" />
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <Input id="email" type="email" />
+            <Input id="password" type="password" />
 
-          <S.ButtonsContainer>
-            <Button type={ButtonTypes.Submit}>Salvar</Button>
-            <Button
-              className="grey"
-              type={ButtonTypes.Button}
-              onClick={() => setIsUpdating(false)}
-            >
-              Cancelar
-            </Button>
-          </S.ButtonsContainer>
+            <S.ButtonsContainer>
+              <Button type={ButtonTypes.Submit}>Salvar</Button>
+              <Button
+                className="grey"
+                type={ButtonTypes.Button}
+                onClick={() => setIsUpdating(false)}
+              >
+                Cancelar
+              </Button>
+            </S.ButtonsContainer>
 
-          <p>{errorMessage}</p>
-        </form>
+            <ErrorMessage text={authErrorMessage} />
+          </form>
+        )}
       </S.Container>
     </>
   );

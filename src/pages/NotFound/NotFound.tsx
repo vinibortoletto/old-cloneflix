@@ -38,8 +38,6 @@ export default function NotFound() {
         <S.ErrorCode>
           {codeError} <span>NSES-404</span>
         </S.ErrorCode>
-
-        <footer></footer>
       </S.Container>
     </>
   );

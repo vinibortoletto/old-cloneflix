@@ -2,12 +2,6 @@ import styled from 'styled-components/macro';
 import { media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
-// type Props = {
-//   pathname: string;
-//   error: boolean;
-//   className: string;
-// };
-
 export const Container = styled.div`
   width: 100%;
 
@@ -43,21 +37,10 @@ export const Input = styled.input`
   padding: 1.2rem 1rem 0.6rem 1rem;
   border-radius: ${vars.borderRadius};
 
-  color: ${vars.color.black};
-  background-color: ${vars.color.white};
+  background-color: ${vars.color.grey};
+  color: ${vars.color.white};
 
   &.error {
     border-bottom: 4px solid ${vars.color.orange};
-  }
-`;
-
-export const Error = styled.p`
-  margin: 0.5rem 0;
-  text-align: left;
-  font-size: ${vars.fontSize.default.tiny};
-  color: ${vars.color.orange};
-
-  ${media(550)} {
-    font-size: ${vars.fontSize.default.small};
   }
 `;

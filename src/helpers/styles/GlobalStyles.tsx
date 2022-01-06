@@ -13,8 +13,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
 
   body {
     background-color: ${vars.color.black};
-    background-color: ${(props) =>
-      props.pathname === '/browse' && `${vars.color.darkGrey}`};
+    background-color: ${(props) => props.pathname === '/browse' && `${vars.color.darkGrey}`};
 
     color: ${vars.color.white};
     font-size: ${vars.fontSize.default.small};
@@ -26,7 +25,6 @@ export const GlobalStyles = createGlobalStyle<Props>`
     }
   }
 
-
   button, select {
     background-color: transparent;
     border: none;
@@ -37,7 +35,4 @@ export const GlobalStyles = createGlobalStyle<Props>`
     text-decoration: none;
     color: inherit;
   }
-
-
-
 `;

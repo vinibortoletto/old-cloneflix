@@ -1,7 +1,8 @@
-import React, { FocusEvent, ChangeEvent, useState, useEffect } from 'react';
+import React, { FocusEvent, ChangeEvent, useEffect } from 'react';
 import { useLocation } from 'react-router';
 import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import * as S from './Input.styles';
 
 type Props = {
@@ -17,12 +18,12 @@ export default function Input({ id, type }: Props) {
     password,
     setPassword,
     emailError,
-    setEmailError,
     passwordError,
-    setPasswordError,
+    validateEmail,
+    validatePassword,
   } = useAuth();
   const { input } = data.components;
-  const pathname = useLocation().pathname;
+  const location = useLocation();
 
   function animateText(e: FocusEvent<HTMLInputElement>) {
     const labelElmt = e.target.previousSibling as HTMLLabelElement;
@@ -35,81 +36,36 @@ export default function Input({ id, type }: Props) {
     }
   }
 
-  function handleError(text: string, field: EventTarget & HTMLInputElement) {
-    const emailRegex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-    // Email validation
-    if (type === 'email') {
-      if (pathname === '/your-account') {
-        // Updating account
-        if (text !== '' && !emailRegex.test(text)) {
-          field.classList.add('error');
-          return setEmailError(input.email.error.invalid);
-        }
-      } else {
-        // Login and Signup
-        if (text === '') {
-          field.classList.add('error');
-          return setEmailError(input.email.error.empty);
-        }
-        if (!emailRegex.test(text)) {
-          field.classList.add('error');
-          return setEmailError(input.email.error.invalid);
-        }
-      }
-      setEmailError('');
-      field.classList.remove('error');
-    }
-
-    // Password validation
-    if (type === 'password') {
-      if (pathname === '/your-account') {
-        // Updating account
-        if (text !== '' && text.length < 6) {
-          field.classList.add('error');
-          return setPasswordError(input.password.error.invalid);
-        }
-      } else {
-        // Login and Signup
-        if (text === '') {
-          field.classList.add('error');
-          return setPasswordError(input.password.error.empty);
-        }
-        if (text.length < 6) {
-          field.classList.add('error');
-          return setPasswordError(input.password.error.invalid);
-        }
-      }
-
-      setPasswordError('');
-      field.classList.remove('error');
-    }
-  }
-
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    const field = e.target;
-    const text = field.value;
+    const inputField = e.target;
+    const inputText = inputField.value;
 
-    if (type === 'email') setEmail(text);
-    else setPassword(text);
-
-    handleError(text, field);
+    if (type === 'email') {
+      setEmail(inputText);
+      validateEmail(inputText);
+    } else {
+      setPassword(inputText);
+      validatePassword(inputText);
+    }
   }
 
-  useEffect(() => {
-    // Clean fields when route changes
-    setEmail('');
-    setEmailError('');
-    setPassword('');
-    setPasswordError('');
-  }, [pathname]);
+  function handleInputClassName(): string {
+    if (type === 'email' && emailError) return 'error';
+    if (type === 'password' && passwordError) return 'error';
+    return '';
+  }
+
+  function handleLabelClassName(): string {
+    if (type === 'email' && email) return 'active';
+    if (type === 'password' && password) return 'active';
+    return '';
+  }
 
   return (
     <>
       <S.Container>
         <div>
-          <S.Label htmlFor={id}>
+          <S.Label htmlFor={id} className={handleLabelClassName()}>
             {type === 'email' ? input.email.label : input.password.label}
           </S.Label>
           <S.Input
@@ -119,9 +75,10 @@ export default function Input({ id, type }: Props) {
             onBlur={animateText}
             onChange={handleChange}
             value={type === 'email' ? email : password}
+            className={handleInputClassName()}
           />
         </div>
-        <S.Error>{type === 'email' ? emailError : passwordError}</S.Error>
+        <ErrorMessage text={type === 'email' ? emailError : passwordError} />
       </S.Container>
     </>
   );

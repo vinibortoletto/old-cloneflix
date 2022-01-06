@@ -20,6 +20,7 @@
     "no-console": "warn",
     "comma-dangle": "off",
     "semi": "off",
-    "import/no-named-default": "off"
+    "import/no-named-default": "off",
+    "multiline-ternary": "off"
   }
 }

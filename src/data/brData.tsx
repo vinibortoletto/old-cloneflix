@@ -1,8 +1,9 @@
-export const brData = {
+import { DataType } from '../types/dataType';
+
+export const brData: DataType = {
   components: {
     formEmail: {
-      title:
-        'Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.',
+      title: 'Pronto para assistir? Informe seu email para criar ou reiniciar sua assinatura.',
       button: 'Vamos lá',
     },
     selectInput: 'Selecione o idioma.',
@@ -71,16 +72,14 @@ export const brData = {
         {
           id: 2,
           title: 'Baixe séries para assistir offline.',
-          subtitle:
-            'Salve seus títulos favoritos e sempre tenha algo para assistir.',
+          subtitle: 'Salve seus títulos favoritos e sempre tenha algo para assistir.',
           imgAlt:
             'Uma garota de 12 anos com um olhar preocupado. À direito, um garoto da mesma idade de costas. Ao fundo um campo e fogos de artifício no céu.',
         },
         {
           id: 3,
           title: 'Assista quando quiser.',
-          subtitle:
-            'Assista no celular, tablet, Smart TV ou notebook sem pagar a mais por isso.',
+          subtitle: 'Assista no celular, tablet, Smart TV ou notebook sem pagar a mais por isso.',
           imgAlt:
             'Um monitor de computador mostrando um grupo de pessoas com roupa vermelha e usando uma máscara de Salvador Dali. Um tablet mostrando três mulheres se abraçando. Um celular mostrando uma jovem mulher caminhando.',
         },
@@ -154,14 +153,24 @@ export const brData = {
       codeError: 'Código de erro',
     },
     signup: {
-      title: 'Crie uma senha para iniciar sua assinatura',
-      subtitle:
-        'Faltam só mais alguns passos! Nós também detestamos formulários.',
+      title: 'Crie uma conta para iniciar sua assinatura',
+      subtitle: 'Faltam só mais alguns passos! Nós também detestamos formulários.',
     },
     login: {
       title: 'Entrar',
       noAcc: 'Novo na Netflix?',
       signUp: 'Cadastre-se agora',
     },
+  },
+  authErrors: {
+    invalidEmail: 'Email inválido.',
+    emailAlreadyInUse: 'Email escolhido já está em uso. Por favor, tente outro.',
+    userNotFound: 'Usuário não encontrado.',
+    wrongPassword: 'Senha inválida.',
+    emptyFields: 'Preencha os campos acima.',
+    tooManyRequests:
+      'A conta foi temporariamente desabilitada devido à muitas tentativas de login erradas. Redefina sua senha ou tenta novamente mais tarde.',
+    requiresRecentLogin:
+      'É preciso que você tenha feito login recentemente para atualizar sua conta.',
   },
 };

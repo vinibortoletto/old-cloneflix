@@ -16,11 +16,6 @@ export const Container = styled.div`
     height: 100vh;
   }
 
-  input {
-    background-color: ${vars.color.grey};
-    color: ${vars.color.white};
-  }
-
   button {
     margin-top: 2rem;
   }
@@ -48,4 +43,8 @@ export const Signup = styled.p`
       text-decoration: underline;
     }
   }
+`;
+
+export const SpinnerContainer = styled.div`
+  margin: 15rem 0;
 `;

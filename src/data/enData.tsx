@@ -1,8 +1,9 @@
-export const enData = {
+import { DataType } from '../types/dataType';
+
+export const enData: DataType = {
   components: {
     formEmail: {
-      title:
-        'Ready to watch? Enter your email to create or restart your membership.',
+      title: 'Ready to watch? Enter your email to create or restart your membership.',
       button: 'Get Started',
     },
     selectInput: 'Select language.',
@@ -71,8 +72,7 @@ export const enData = {
         {
           id: 2,
           title: 'Download your shows to watch offline.',
-          subtitle:
-            'Save your favorites easily and always have something to watch.',
+          subtitle: 'Save your favorites easily and always have something to watch.',
           imgAlt:
             'A 12 years old girl with worried look. On the right a boy, same age, with his back turned. There are fireworks in the sky.',
         },
@@ -149,20 +149,28 @@ export const enData = {
     },
     notFound: {
       title: 'Lost your way?',
-      subtitle:
-        "Sorry, we can't find that page. You'll find lots to explore on the home page.",
+      subtitle: "Sorry, we can't find that page. You'll find lots to explore on the home page.",
       button: 'Netflix Home',
       codeError: 'Error Code',
     },
     signup: {
-      title: 'Create a password to start your membership',
-      subtitle:
-        "Just a few more steps and you're done! We hate paperwork, too.",
+      title: 'Create an account to start your membership',
+      subtitle: "Just a few more steps and you're done! We hate paperwork, too.",
     },
     login: {
       title: 'Sign in',
       noAcc: 'New to Netflix?',
       signUp: 'Sign up now',
     },
+  },
+  authErrors: {
+    invalidEmail: 'Invalid email.',
+    emailAlreadyInUse: 'Email already in use. Please try a new one.',
+    userNotFound: 'User not found.',
+    wrongPassword: 'Wrong password.',
+    emptyFields: 'Please fill in the fields.',
+    tooManyRequests:
+      'The account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.',
+    requiresRecentLogin: 'You need to ',
   },
 };

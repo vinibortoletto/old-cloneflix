@@ -1,21 +1,66 @@
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import Spinner from '../../components/Spinner/Spinner';
 import Title from '../../components/Title/Title';
+import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
+import { auth } from '../../libs/firebase';
 import * as S from './SignUp.styles';
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const { data } = useData();
   const { subtitle, title } = data.pages.signup;
+  const {
+    email,
+    password,
+    // signup,
+    validateEmail,
+    validatePassword,
+    isError,
+    checkAuthErrors,
+    setIsLoading,
+    isLoading,
+  } = useAuth();
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    if (!email || !password) {
+      validateEmail(email);
+      validatePassword(password);
+      return;
+    }
+
+    if (!isError) {
+      setIsLoading(true);
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          setIsLoading(false);
+          navigate('/browse');
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          checkAuthErrors(error.code);
+        });
+    }
+  }
 
   return (
     <>
-      <S.Container>
-        {/* <S.Title>{title}</S.Title> */}
-        <Title text={title} />
-        <S.Subtitle>{subtitle}</S.Subtitle>
-        <RegistrationForm />
-      </S.Container>
+      {isLoading ? (
+        <S.SpinnerContainer>
+          <Spinner />
+        </S.SpinnerContainer>
+      ) : (
+        <S.Container>
+          <Title text={title} />
+          <S.Subtitle>{subtitle}</S.Subtitle>
+          <RegistrationForm handleSubmit={handleSubmit} />
+        </S.Container>
+      )}
     </>
   );
 }

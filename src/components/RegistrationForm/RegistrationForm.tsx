@@ -1,23 +1,26 @@
-/* eslint-disable indent */
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { useLocation } from 'react-router';
 import { useData } from '../../contexts/Data';
 import Button, { ButtonTypes } from '../Button/Button';
 import Input from '../Input/Input';
 import * as S from './RegistrationForm.styles';
 
-export default function RegistrationForm() {
-  const { lang, data } = useData();
+export type Props = {
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+};
+
+export default function RegistrationForm({ handleSubmit }: Props) {
   const pathname = useLocation().pathname;
-  const { login, signup } = data.components.registrationForm;
+  const { data } = useData();
+  const { registrationForm } = data.components;
 
   return (
     <>
-      <S.Container>
+      <S.Container onSubmit={handleSubmit}>
         <Input id="email" type="email" />
         <Input id="password" type="password" />
         <Button type={ButtonTypes.Submit}>
-          {pathname === '/login' ? login : signup}
+          {pathname === '/login' ? registrationForm.login : registrationForm.signup}
         </Button>
       </S.Container>
     </>
