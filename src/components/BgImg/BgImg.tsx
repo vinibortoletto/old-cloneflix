@@ -21,7 +21,7 @@ export default function BgImg() {
         <div className="shadow" />
         <img
           src={bgImgSmall}
-          srcSet={`${bgImgSmall} 1000vw, ${bgImgMedium} 1500vw, ${bgImgLarge} 1800vw`}
+          srcSet={`${bgImgSmall} 1000w, ${bgImgMedium} 1500w, ${bgImgLarge} 1800w`}
           alt={bgImgAlt}
         />
       </S.Container>

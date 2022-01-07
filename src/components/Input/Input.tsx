@@ -1,5 +1,4 @@
-import React, { FocusEvent, ChangeEvent, useEffect } from 'react';
-import { useLocation } from 'react-router';
+import React, { FocusEvent, ChangeEvent } from 'react';
 import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
@@ -23,7 +22,6 @@ export default function Input({ id, type }: Props) {
     validatePassword,
   } = useAuth();
   const { input } = data.components;
-  const location = useLocation();
 
   function animateText(e: FocusEvent<HTMLInputElement>) {
     const labelElmt = e.target.previousSibling as HTMLLabelElement;
