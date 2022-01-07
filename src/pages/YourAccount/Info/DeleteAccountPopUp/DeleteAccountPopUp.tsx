@@ -1,10 +1,16 @@
-import { deleteUser } from 'firebase/auth';
+// Libs
 import React from 'react';
+import { deleteUser } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+
+// Components
 import { Button } from '../../../../components/Button/Button.styles';
 import ErrorMessage from '../../../../components/ErrorMessage/ErrorMessage';
 import Spinner from '../../../../components/Spinner/Spinner';
+
+// Contexts
 import { useAuth } from '../../../../contexts/Auth';
+
 // Styles
 import * as S from './DeleteAccountPopUp.styles';
 

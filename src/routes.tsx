@@ -1,5 +1,8 @@
+// Libs
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+// Pages
 import Browse from './pages/Browse/Browse';
 import Landing from './pages/Landing/Landing';
 import Login from './pages/Login/Login';

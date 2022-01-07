@@ -1,9 +1,18 @@
+// Libs
 import React from 'react';
+
+// Components
 import Title from '../../../components/Title/Title';
-import { useData } from '../../../contexts/Data';
-import * as S from './Faq.styles';
-import { AiOutlinePlus } from 'react-icons/ai';
 import EmailForm from '../../../components/EmailForm/EmailForm';
+
+// Contexts
+import { useData } from '../../../contexts/Data';
+
+// Styles
+import * as S from './Faq.styles';
+
+// Images
+import { AiOutlinePlus } from 'react-icons/ai';
 
 export default function Faq() {
   const { data } = useData();
@@ -26,10 +35,7 @@ export default function Faq() {
         <S.List>
           {questions.map((question) => (
             <li key={question.id}>
-              <S.Title
-                id={question.id.toString()}
-                onClick={(e) => handleClick(e, question.id)}
-              >
+              <S.Title id={question.id.toString()} onClick={(e) => handleClick(e, question.id)}>
                 <h2>{question.title}</h2>
                 <AiOutlinePlus />
               </S.Title>

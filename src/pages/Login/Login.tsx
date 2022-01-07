@@ -1,17 +1,24 @@
+// Libs
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
-import Title from '../../components/Title/Title';
-import * as S from './Login.styles';
-
-import { useData } from '../../contexts/Data';
-import BgImg from '../../components/BgImg/BgImg';
-
-import { useAuth } from '../../contexts/Auth';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import Spinner from '../../components/Spinner/Spinner';
 import { auth } from '../../libs/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+
+// Images
+import BgImg from '../../components/BgImg/BgImg';
+
+// Components
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
+import Title from '../../components/Title/Title';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Spinner from '../../components/Spinner/Spinner';
+
+// Contexts
+import { useData } from '../../contexts/Data';
+import { useAuth } from '../../contexts/Auth';
+
+// Styles
+import * as S from './Login.styles';
 
 export default function Login() {
   const navigate = useNavigate();

@@ -1,12 +1,19 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+// Libs
 import React from 'react';
+import { auth } from '../../libs/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+
+// Components
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
 import Spinner from '../../components/Spinner/Spinner';
 import Title from '../../components/Title/Title';
+
+// Contexts
 import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
-import { auth } from '../../libs/firebase';
+
+// Styles
 import * as S from './SignUp.styles';
 
 export default function SignUp() {

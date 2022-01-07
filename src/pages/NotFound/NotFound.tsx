@@ -1,11 +1,20 @@
+// Libs
 import React, { useEffect } from 'react';
-import * as S from './NotFound.styles';
+import { Link } from 'react-router-dom';
+
+// Images
 import bgImg from '../../images/misc/not-found.jpg';
+
+// Components
 import Title from '../../components/Title/Title';
 import Subtitle from '../../components/Subtitle/Subtitle';
 import { Button } from '../../components/Button/Button.styles';
-import { Link } from 'react-router-dom';
+
+// Contexts
 import { useData } from '../../contexts/Data';
+
+// Styles
+import * as S from './NotFound.styles';
 
 export default function NotFound() {
   const { data } = useData();

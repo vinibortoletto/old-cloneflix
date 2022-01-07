@@ -1,3 +1,4 @@
+// Libs
 import React from 'react';
 
 // Components
@@ -7,7 +8,11 @@ import EmailForm from '../../../components/EmailForm/EmailForm';
 
 // Styles
 import * as S from './Hero.styles';
+
+// Contexts
 import { useData } from '../../../contexts/Data';
+
+// Images
 import BgImg from '../../../components/BgImg/BgImg';
 
 export default function Hero() {

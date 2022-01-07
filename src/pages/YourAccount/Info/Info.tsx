@@ -1,8 +1,15 @@
+// Libs
 import React from 'react';
-import * as S from './Info.styles';
+
+// Components
 import DeleteAccountPopUp from './DeleteAccountPopUp/DeleteAccountPopUp';
-import { useAuth } from '../../../contexts/Auth';
 import UpdateAccountPopUp from './UpdateAccountPopUp/UpdateAccountPopUp';
+
+// Contexts
+import { useAuth } from '../../../contexts/Auth';
+
+// Styles
+import * as S from './Info.styles';
 
 export default function Info() {
   const { isDeleting, setIsDeleting, isUpdating, setIsUpdating, user } = useAuth();
