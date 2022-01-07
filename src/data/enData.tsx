@@ -171,6 +171,6 @@ export const enData: DataType = {
     emptyFields: 'Please fill in the fields.',
     tooManyRequests:
       'The account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later.',
-    requiresRecentLogin: 'You need to ',
+    requiresRecentLogin: 'You must be recently logged in to update your account.',
   },
 };

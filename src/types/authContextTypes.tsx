@@ -27,4 +27,5 @@ export type ContextValue = {
   validateEmail: (inputText: string) => void;
   validatePassword: (inputText: string) => void;
   checkAuthErrors: (errorCode: string) => void;
+  cleanInputFields: (type: string) => void;
 };

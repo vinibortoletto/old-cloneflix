@@ -1,5 +1,6 @@
-import React from 'react';
-import { updateEmail } from 'firebase/auth';
+// Libs
+import React, { KeyboardEvent } from 'react';
+import { updateEmail, updatePassword } from 'firebase/auth';
 
 // Componetns
 import Button, { ButtonTypes } from '../../../../components/Button/Button';
@@ -16,13 +17,18 @@ import ErrorMessage from '../../../../components/ErrorMessage/ErrorMessage';
 export default function UpdateAccountPopUp() {
   const {
     email,
+    setEmail,
+    setEmailError,
     password,
+    setPassword,
+    setPasswordError,
     setIsUpdating,
     user,
-    setIsLoading,
     isLoading,
+    setIsLoading,
     checkAuthErrors,
     authErrorMessage,
+    setAuthErrorMessage,
     validateEmail,
     validatePassword,
   } = useAuth();
@@ -40,6 +46,21 @@ export default function UpdateAccountPopUp() {
           .then(() => {
             setIsLoading(false);
             setIsUpdating(false);
+            setEmail('');
+          })
+          .catch((error) => {
+            setIsLoading(false);
+            checkAuthErrors(error.code);
+          });
+      }
+
+      if (password !== '') {
+        setIsLoading(true);
+        updatePassword(user, password)
+          .then(() => {
+            setIsLoading(false);
+            setIsUpdating(false);
+            setPassword('');
           })
           .catch((error) => {
             setIsLoading(false);
@@ -47,6 +68,15 @@ export default function UpdateAccountPopUp() {
           });
       }
     }
+  }
+
+  function handleClosePopup() {
+    setIsUpdating(false);
+    setAuthErrorMessage('');
+    setEmail('');
+    setEmailError('');
+    setPassword('');
+    setPasswordError('');
   }
 
   return (
@@ -64,11 +94,7 @@ export default function UpdateAccountPopUp() {
 
             <S.ButtonsContainer>
               <Button type={ButtonTypes.Submit}>Salvar</Button>
-              <Button
-                className="grey"
-                type={ButtonTypes.Button}
-                onClick={() => setIsUpdating(false)}
-              >
+              <Button className="grey" type={ButtonTypes.Button} onClick={handleClosePopup}>
                 Cancelar
               </Button>
             </S.ButtonsContainer>

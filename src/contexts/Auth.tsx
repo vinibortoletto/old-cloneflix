@@ -1,7 +1,11 @@
+// Libs
 import React, { useContext, createContext, useState, ReactNode, useEffect } from 'react';
 import { User } from 'firebase/auth';
 import { auth } from '../libs/firebase';
 import { useLocation } from 'react-router-dom';
+
+// Helpers
+import { emailRegex } from '../helpers/regex/emailRegex';
 
 // Types
 import { ContextValue } from '../types/authContextTypes';
@@ -32,66 +36,62 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [passwordError, setPasswordError] = useState('');
   const [authErrorMessage, setAuthErrorMessage] = useState('');
 
-  function validateEmail(inputText: string) {
-    const emailRegex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const inputField = document.getElementById('email') as HTMLInputElement;
+  function cleanInputFields(type: string) {
+    const emailField = document.getElementById('email') as HTMLInputElement;
+    const passwordField = document.getElementById('password') as HTMLInputElement;
 
-    if (pathname === '/your-account') {
-      // Updating account
-      if (!emailRegex.test(inputText)) {
-        setIsError(true);
-        return setEmailError(input.email.error.invalid);
-      }
-
+    if (type === 'email') {
       setEmailError('');
       setIsError(false);
-      inputField.classList.remove('error');
-    } else {
-      // Login and Signup
-      if (inputText === '') {
-        setIsError(true);
-        return setEmailError(input.email.error.empty);
-      }
+      emailField.classList.remove('error');
+    }
 
-      if (!emailRegex.test(inputText)) {
-        setIsError(true);
-        return setEmailError(input.email.error.invalid);
-      }
-
-      setEmailError('');
+    if (type === 'password') {
+      setPasswordError('');
       setIsError(false);
-      inputField.classList.remove('error');
+      passwordField.classList.remove('error');
     }
   }
 
-  function validatePassword(inputText: string) {
-    const inputField = document.getElementById('password') as HTMLInputElement;
-
+  function validateEmail(inputText: string) {
     if (pathname === '/your-account') {
-      // Updating account
-      if (inputText !== '' && inputText.length < 6) {
-        setIsError(true);
-        return setPasswordError(input.password.error.invalid);
-      }
+      if (!inputText && password) return cleanInputFields('email');
 
-      setPasswordError('');
-      setIsError(false);
-      inputField.classList.remove('error');
-    } else {
-      // Login and Signup
-      if (inputText === '') {
+      if (!emailRegex.test(inputText)) {
         setIsError(true);
-        return setPasswordError(input.password.error.empty);
+        return setEmailError(input.email.error.invalid);
       }
-      if (inputText.length < 6) {
-        setIsError(true);
-        return setPasswordError(input.password.error.invalid);
-      }
-      setPasswordError('');
-      setIsError(false);
-      inputField.classList.remove('error');
     }
+
+    if (inputText === '') {
+      setIsError(true);
+      return setEmailError(input.email.error.empty);
+    }
+
+    if (!emailRegex.test(inputText)) {
+      setIsError(true);
+      return setEmailError(input.email.error.invalid);
+    }
+
+    cleanInputFields('email');
+  }
+
+  function validatePassword(inputText: string) {
+    if (pathname === '/your-account' && !inputText && email) {
+      return cleanInputFields('password');
+    }
+
+    if (inputText === '') {
+      setIsError(true);
+      return setPasswordError(input.password.error.empty);
+    }
+
+    if (inputText.length < 6) {
+      setIsError(true);
+      return setPasswordError(input.password.error.invalid);
+    }
+
+    cleanInputFields('password');
   }
 
   function checkAuthErrors(errorCode: string) {
@@ -117,30 +117,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
       default:
         break;
     }
-
-    // if (errorCode.includes('invalid-email')) {
-    //   setEmailError(data.authErrors.emailAlreadyInUse);
-    // }
-
-    // if (errorCode.includes('email-already-in-use')) {
-    //   setEmailError(data.authErrors.emailAlreadyInUse);
-    // }
-
-    // if (errorCode.includes('user-not-found')) {
-    //   setEmailError(data.authErrors.userNotFound);
-    // }
-
-    // if (errorCode.includes('wrong-password')) {
-    //   setPasswordError(data.authErrors.wrongPassword);
-    // }
-
-    // if (errorCode.includes('too-many-requests')) {
-    //   setAuthErrorMessage(data.authErrors.tooManyRequests);
-    // }
-
-    // if (errorCode.includes('requires-recent-login')) {
-    //   setAuthErrorMessage(data.authErrors.requiresRecentLogin);
-    // }
   }
 
   // Keeps user logged in
@@ -151,11 +127,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
     return unsubscribe;
   }, []);
-
-  // useEffect(() => {
-  //   setEmail('');
-  //   setPassword('');
-  // }, []);
 
   const value = {
     isDeleting,
@@ -184,6 +155,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     validateEmail,
     validatePassword,
     checkAuthErrors,
+    cleanInputFields,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

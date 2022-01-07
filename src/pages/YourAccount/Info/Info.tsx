@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import * as S from './Info.styles';
 import DeleteAccountPopUp from './DeleteAccountPopUp/DeleteAccountPopUp';
 import { useAuth } from '../../../contexts/Auth';
@@ -6,26 +6,6 @@ import UpdateAccountPopUp from './UpdateAccountPopUp/UpdateAccountPopUp';
 
 export default function Info() {
   const { isDeleting, setIsDeleting, isUpdating, setIsUpdating, user } = useAuth();
-
-  useEffect(() => {
-    function handleClosePopup(e: MouseEvent) {
-      const updatePopupElmt = document.getElementById('update-account-popup');
-      const deletePopupElmt = document.getElementById('delete-account-popup');
-
-      if (isUpdating && !updatePopupElmt?.contains(e.target as Node)) {
-        document.removeEventListener('click', handleClosePopup);
-        setIsUpdating(false);
-      }
-      if (isDeleting && !deletePopupElmt?.contains(e.target as Node)) {
-        document.removeEventListener('click', handleClosePopup);
-        setIsDeleting(false);
-      }
-    }
-
-    if (isUpdating || isDeleting) {
-      document.addEventListener('click', handleClosePopup);
-    }
-  }, [isUpdating, isDeleting]);
 
   return (
     <S.Container>
