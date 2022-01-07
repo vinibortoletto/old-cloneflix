@@ -1,27 +1,43 @@
-import React from 'react';
+// Libs
+import React, { FormEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// Images
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
+
+// Contexts
+import { useAuth } from '../../contexts/Auth';
+import { useData } from '../../contexts/Data';
+
+// Components
 import Button, { ButtonTypes } from '../Button/Button';
 import Input from '../Input/Input';
+
+// Styles
 import * as S from './EmailForm.styles';
 
 export default function EmailForm() {
+  const navigate = useNavigate();
+  const { email } = useAuth();
+  const { data } = useData();
+  const { title, button } = data.components.formEmail;
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (email) navigate('/signup');
+  }
+
   return (
-    <>
-      <S.Container>
-        <S.Title>
-          Pronto para assistir? Informe seu email para criar ou reiniciar sua
-          assinatura.
-        </S.Title>
+    <S.Container onSubmit={handleSubmit}>
+      <S.Title>{title}</S.Title>
 
-        <S.Wrapper className="wrapper">
-          <Input id="email" type="email" />
-
-          <Button type={ButtonTypes.Submit}>
-            <span>Vamos lá</span>
-            <MdOutlineKeyboardArrowRight />
-          </Button>
-        </S.Wrapper>
-      </S.Container>
-    </>
+      <S.Wrapper>
+        <Input id="email" type="email" />
+        <Button type={ButtonTypes.Submit}>
+          {button}
+          <MdOutlineKeyboardArrowRight />
+        </Button>
+      </S.Wrapper>
+    </S.Container>
   );
 }
