@@ -10,8 +10,8 @@ import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
 
 // Components
-import Button, { ButtonTypes } from '../Button/Button';
 import Input from '../Input/Input';
+import { Button } from '../Button/Button.styles';
 
 // Styles
 import * as S from './EmailForm.styles';
@@ -33,7 +33,7 @@ export default function EmailForm() {
 
       <S.Wrapper>
         <Input id="email" type="email" />
-        <Button type={ButtonTypes.Submit}>
+        <Button type="submit">
           {button}
           <MdOutlineKeyboardArrowRight />
         </Button>

@@ -9,9 +9,9 @@ import Logo from './Logo/Logo';
 import NavList from './NavList/NavList';
 import NavIcons from './NavIcons/NavIcons';
 import SelectInput from '../SelectInput/SelectInput';
-import Button, { ButtonTypes } from '../Button/Button';
 import { Link } from 'react-router-dom';
 import { useData } from '../../contexts/Data';
+import { Button } from '../Button/Button.styles';
 
 export default function Header() {
   const pathname = useLocation().pathname;
@@ -35,11 +35,9 @@ export default function Header() {
           {pathname === '/' && <SelectInput />}
 
           {(pathname === '/' || pathname === '/signup') && (
-            <>
-              <Button type={ButtonTypes.Button}>
-                <Link to="/login">{lang === 'br' ? 'Entrar' : 'Sign in'}</Link>
-              </Button>
-            </>
+            <Button type="button">
+              <Link to="/login">{lang === 'br' ? 'Entrar' : 'Sign in'}</Link>
+            </Button>
           )}
         </S.Wrapper>
       </S.Container>

@@ -1,7 +1,7 @@
 import { deleteUser } from 'firebase/auth';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button, { ButtonTypes } from '../../../../components/Button/Button';
+import { Button } from '../../../../components/Button/Button.styles';
 import ErrorMessage from '../../../../components/ErrorMessage/ErrorMessage';
 import Spinner from '../../../../components/Spinner/Spinner';
 import { useAuth } from '../../../../contexts/Auth';
@@ -41,14 +41,10 @@ export default function DeleteAccountPopUp() {
           <>
             <ErrorMessage text={authErrorMessage} />
             <S.ButtonsContainer>
-              <Button type={ButtonTypes.Button} onClick={deleteAccount}>
+              <Button type="button" onClick={deleteAccount}>
                 Excluir conta
               </Button>
-              <Button
-                className="grey"
-                type={ButtonTypes.Button}
-                onClick={() => setIsDeleting(false)}
-              >
+              <Button className="grey" type="button" onClick={() => setIsDeleting(false)}>
                 Cancelar
               </Button>
             </S.ButtonsContainer>

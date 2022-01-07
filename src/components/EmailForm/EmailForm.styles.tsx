@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components/macro';
+import styled from 'styled-components/macro';
 import { media, DisplaySize } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
@@ -68,7 +68,8 @@ export const Wrapper = styled.div`
       width: 14rem;
       margin: 0;
       justify-content: center;
-      font-size: ${vars.fontSize.subtitle.big};
+      font-size: ${vars.fontSize.default.big};
+      font-weight: bold;
     }
   }
 `;

@@ -1,9 +1,9 @@
 // Libs
-import React, { KeyboardEvent } from 'react';
+import React from 'react';
 import { updateEmail, updatePassword } from 'firebase/auth';
 
 // Componetns
-import Button, { ButtonTypes } from '../../../../components/Button/Button';
+import { Button } from '../../../../components/Button/Button.styles';
 import Input from '../../../../components/Input/Input';
 import Spinner from '../../../../components/Spinner/Spinner';
 
@@ -93,8 +93,8 @@ export default function UpdateAccountPopUp() {
             <Input id="password" type="password" />
 
             <S.ButtonsContainer>
-              <Button type={ButtonTypes.Submit}>Salvar</Button>
-              <Button className="grey" type={ButtonTypes.Button} onClick={handleClosePopup}>
+              <Button type="submit">Salvar</Button>
+              <Button className="grey" type="button" onClick={handleClosePopup}>
                 Cancelar
               </Button>
             </S.ButtonsContainer>

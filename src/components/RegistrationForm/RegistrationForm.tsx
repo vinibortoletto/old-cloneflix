@@ -1,7 +1,7 @@
 import React, { FormEvent } from 'react';
 import { useLocation } from 'react-router';
 import { useData } from '../../contexts/Data';
-import Button, { ButtonTypes } from '../Button/Button';
+import { Button } from '../Button/Button.styles';
 import Input from '../Input/Input';
 import * as S from './RegistrationForm.styles';
 
@@ -19,7 +19,7 @@ export default function RegistrationForm({ handleSubmit }: Props) {
       <S.Container onSubmit={handleSubmit}>
         <Input id="email" type="email" />
         <Input id="password" type="password" />
-        <Button type={ButtonTypes.Submit}>
+        <Button type="submit">
           {pathname === '/login' ? registrationForm.login : registrationForm.signup}
         </Button>
       </S.Container>

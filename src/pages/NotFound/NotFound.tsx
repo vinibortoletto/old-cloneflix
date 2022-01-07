@@ -3,7 +3,7 @@ import * as S from './NotFound.styles';
 import bgImg from '../../images/misc/not-found.jpg';
 import Title from '../../components/Title/Title';
 import Subtitle from '../../components/Subtitle/Subtitle';
-import Button, { ButtonTypes } from '../../components/Button/Button';
+import { Button } from '../../components/Button/Button.styles';
 import { Link } from 'react-router-dom';
 import { useData } from '../../contexts/Data';
 
@@ -31,7 +31,7 @@ export default function NotFound() {
         <Title text={title} />
         <Subtitle text={subtitle}></Subtitle>
 
-        <Button type={ButtonTypes.Button}>
+        <Button type="button">
           <Link to="/">{button}</Link>
         </Button>
 
