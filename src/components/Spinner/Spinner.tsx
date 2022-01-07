@@ -1,8 +1,11 @@
+// Libs
 import React from 'react';
-// Styles
-import * as S from './Spinner.styles';
+
 // Images
 import SpinnerImg from '../../images/misc/spinner.png';
+
+// Styles
+import * as S from './Spinner.styles';
 
 export default function Spinner() {
   return (

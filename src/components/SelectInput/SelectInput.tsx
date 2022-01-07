@@ -1,5 +1,8 @@
+// Libs
 import React from 'react';
 import { useLocation } from 'react-router';
+
+// Contexts
 import { useData } from '../../contexts/Data';
 
 // Styles

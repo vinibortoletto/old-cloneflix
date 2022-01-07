@@ -1,5 +1,5 @@
+// Libs
 import React from 'react';
-import * as S from './BgImg.styles';
 
 // Images
 import bgImgSmall from '../../images/misc/bg-small.jpg';
@@ -9,6 +9,9 @@ import bgImgLarge from '../../images/misc/bg-large.jpg';
 // Contexts
 import { useData } from '../../contexts/Data';
 import { useLocation } from 'react-router';
+
+// Styles
+import * as S from './BgImg.styles';
 
 export default function BgImg() {
   const { data } = useData();

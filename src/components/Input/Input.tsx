@@ -1,7 +1,14 @@
+// Libs
 import React, { FocusEvent, ChangeEvent } from 'react';
+
+// Components
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
+
+// Contexts
 import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+
+// Styles
 import * as S from './Input.styles';
 
 type Props = {

@@ -1,12 +1,11 @@
-import React, {
-  useContext,
-  createContext,
-  ReactNode,
-  useState,
-  useEffect,
-} from 'react';
+// Libs
+import React, { useContext, createContext, ReactNode, useState, useEffect } from 'react';
+
+// Contexts
 import { brData } from '../data/brData';
 import { enData } from '../data/enData';
+
+// Types
 import { DataType } from '../types/dataType';
 
 type ContextValue = {

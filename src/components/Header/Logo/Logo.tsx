@@ -1,7 +1,12 @@
+// Libs
 import React from 'react';
-import * as S from './Logo.styles';
-import logo from '../../../images/misc/logo.png';
 import { Link, useLocation } from 'react-router-dom';
+
+// Images
+import logo from '../../../images/misc/logo.png';
+
+// Styles
+import * as S from './Logo.styles';
 
 export default function Logo() {
   const pathname = useLocation().pathname;

@@ -1,7 +1,14 @@
+// Libs
 import React from 'react';
 import { useLocation } from 'react-router';
-import { useData } from '../../contexts/Data';
+
+// Components
 import SelectInput from '../SelectInput/SelectInput';
+
+// Contexts
+import { useData } from '../../contexts/Data';
+
+// Styles
 import * as S from './Footer.styles';
 
 export default function Footer() {

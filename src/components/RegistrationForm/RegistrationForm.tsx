@@ -1,9 +1,16 @@
+// Libs
 import React, { FormEvent } from 'react';
 import { useLocation } from 'react-router';
-import { useData } from '../../contexts/Data';
-import { Button } from '../Button/Button.styles';
+
+// Components
 import Input from '../Input/Input';
+
+// Contexts
+import { useData } from '../../contexts/Data';
+
+// Styles
 import * as S from './RegistrationForm.styles';
+import { Button } from '../Button/Button.styles';
 
 export type Props = {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;

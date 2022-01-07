@@ -1,9 +1,14 @@
+// Libs
 import React from 'react';
-import * as S from './NavIcons.styles';
+import { useLocation } from 'react-router';
+
+// Images
 import { FaSearch } from 'react-icons/fa';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import profile from '../../../images/users/1.png';
-import { useLocation } from 'react-router';
+
+// Styles
+import * as S from './NavIcons.styles';
 
 export default function NavIcons() {
   const pathname = useLocation().pathname;

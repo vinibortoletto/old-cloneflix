@@ -1,16 +1,21 @@
+// Libs
 import React from 'react';
 import { useLocation } from 'react-router';
+import { Link } from 'react-router-dom';
 
-// Styles
-import * as S from './Header.styles';
+// Images
+import Logo from './Logo/Logo';
 
 // Components
-import Logo from './Logo/Logo';
 import NavList from './NavList/NavList';
 import NavIcons from './NavIcons/NavIcons';
 import SelectInput from '../SelectInput/SelectInput';
-import { Link } from 'react-router-dom';
+
+// Contexts
 import { useData } from '../../contexts/Data';
+
+// Styles
+import * as S from './Header.styles';
 import { Button } from '../Button/Button.styles';
 
 export default function Header() {
