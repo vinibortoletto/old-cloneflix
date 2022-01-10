@@ -51,6 +51,7 @@ export default function Login() {
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           setUser(userCredential.user);
+          setIsLoading(false);
           navigate('/browse');
         })
         .catch((error) => {

@@ -29,9 +29,7 @@ export const Container = styled.div<Props>`
       `${vars.size.header.big}`};
   }
 
-  ${(props) =>
-    props.pathname === '/signup' &&
-    `border-bottom: 1px solid ${vars.color.grey};`}
+  ${(props) => props.pathname === '/signup' && `border-bottom: 1px solid ${vars.color.grey};`}
 
   ${(props) =>
     (props.pathname === '/your-account' || props.pathname === '/browse') &&
@@ -56,6 +54,5 @@ export const Wrapper = styled.div<Props>`
   }`}
 
   display: ${(props) =>
-    (props.pathname === '/your-account' || props.pathname === '/browse') &&
-    'none'};
+    (props.pathname === '/your-account' || props.pathname === '/browse') && 'none'};
 `;
