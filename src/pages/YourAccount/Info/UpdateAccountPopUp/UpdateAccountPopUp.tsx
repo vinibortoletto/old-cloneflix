@@ -9,6 +9,7 @@ import Spinner from '../../../../components/Spinner/Spinner';
 
 // Contexts
 import { useAuth } from '../../../../contexts/Auth';
+import { useData } from '../../../../contexts/Data';
 
 // Styles
 import * as S from './UpdateAccountPopUp.styles';
@@ -32,6 +33,8 @@ export default function UpdateAccountPopUp() {
     validateEmail,
     validatePassword,
   } = useAuth();
+  const { data } = useData();
+  const { updateAccount } = data.pages.yourAccount;
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -82,8 +85,8 @@ export default function UpdateAccountPopUp() {
   return (
     <>
       <S.Container id="update-account-popup">
-        <S.Title>Atualização de cadastro</S.Title>
-        <S.Subtitle>Deixe em branco os campos que não quiser alterar.</S.Subtitle>
+        <S.Title>{updateAccount.title}</S.Title>
+        <S.Subtitle>{updateAccount.subtitle}</S.Subtitle>
 
         {isLoading ? (
           <Spinner />
@@ -93,9 +96,9 @@ export default function UpdateAccountPopUp() {
             <Input id="password" type="password" />
 
             <S.ButtonsContainer>
-              <Button type="submit">Salvar</Button>
+              <Button type="submit">{updateAccount.updateButton}</Button>
               <Button className="grey" type="button" onClick={handleClosePopup}>
-                Cancelar
+                {updateAccount.cancelButton}
               </Button>
             </S.ButtonsContainer>
 
