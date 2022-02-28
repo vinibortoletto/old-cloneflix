@@ -21,22 +21,11 @@ export const DropdownMenuContent = styled.div`
   border-radius: ${vars.borderRadius};
   font-size: ${vars.fontSize.default.small};
 
-  li:hover {
+  li:hover,
+  button:hover {
     cursor: pointer;
     text-decoration: underline;
   }
-
-  /* &::before {
-      content: '';
-      width: 0;
-      height: 0;
-      position: absolute;
-      top: 20px;
-      right: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-bottom: 5px solid ${vars.color.white};
-    }*/
 `;
 
 export const Container = styled.ul`
