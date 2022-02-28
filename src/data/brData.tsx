@@ -155,6 +155,8 @@ export const brData: DataType = {
     signup: {
       title: 'Crie uma conta para iniciar sua assinatura',
       subtitle: 'Faltam só mais alguns passos! Nós também detestamos formulários.',
+      alreadyHaveAcc: 'Já possui uma conta?',
+      login: 'Entrar',
     },
     login: {
       title: 'Entrar',

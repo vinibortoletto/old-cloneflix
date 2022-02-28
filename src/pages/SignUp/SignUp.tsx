@@ -2,7 +2,7 @@
 import React from 'react';
 import { auth } from '../../libs/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Components
 import RegistrationForm from '../../components/RegistrationForm/RegistrationForm';
@@ -19,11 +19,11 @@ import * as S from './SignUp.styles';
 export default function SignUp() {
   const navigate = useNavigate();
   const { data } = useData();
-  const { subtitle, title } = data.pages.signup;
+  const { subtitle, title, alreadyHaveAcc, login } = data.pages.signup;
+
   const {
     email,
     password,
-    // signup,
     validateEmail,
     validatePassword,
     isError,
@@ -66,6 +66,10 @@ export default function SignUp() {
           <Title text={title} />
           <S.Subtitle>{subtitle}</S.Subtitle>
           <RegistrationForm handleSubmit={handleSubmit} />
+          <S.Login>
+            {alreadyHaveAcc}
+            <Link to="/login">{login}</Link>
+          </S.Login>
         </S.Container>
       )}
     </>

@@ -23,3 +23,17 @@ export const Subtitle = styled.h2`
 export const SpinnerContainer = styled.div`
   margin: 15rem 0;
 `;
+
+export const Login = styled.div`
+  font-size: ${vars.fontSize.default.small};
+  margin-top: 2rem;
+
+  a {
+    color: ${vars.color.blue};
+    margin-left: 0.5rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;

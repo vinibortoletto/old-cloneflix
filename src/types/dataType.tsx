@@ -63,6 +63,8 @@ export type DataType = {
     signup: {
       title: string;
       subtitle: string;
+      alreadyHaveAcc: string;
+      login: string;
     };
     login: {
       title: string;

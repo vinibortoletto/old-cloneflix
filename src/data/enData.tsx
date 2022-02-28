@@ -156,6 +156,8 @@ export const enData: DataType = {
     signup: {
       title: 'Create an account to start your membership',
       subtitle: "Just a few more steps and you're done! We hate paperwork, too.",
+      alreadyHaveAcc: 'Already have an account?',
+      login: 'Log in',
     },
     login: {
       title: 'Sign in',
