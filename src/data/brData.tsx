@@ -54,6 +54,13 @@ export const brData: DataType = {
     },
   },
   pages: {
+    titles: {
+      signup: 'Cadastrar',
+      login: 'Entrar',
+      browse: 'Início',
+      yourAccount: 'Sua Conta',
+      pageNotFound: 'Página Não Encontrada',
+    },
     landing: {
       hero: {
         title: 'Filmes, séries e muito mais. Sem limites.',
@@ -162,6 +169,42 @@ export const brData: DataType = {
       title: 'Entrar',
       noAcc: 'Novo na Netflix?',
       signUp: 'Cadastre-se agora',
+    },
+    yourAccount: {
+      title: 'Conta',
+      accountAge: 'Assinante desde',
+      months: [
+        'janeiro',
+        'fevereiro',
+        'março',
+        'abril',
+        'maio',
+        'junho',
+        'julho',
+        'agosto',
+        'setembro',
+        'outubro',
+        'novembro',
+        'dezembro',
+      ],
+      info: {
+        title: 'Informações da conta',
+        password: 'Senha',
+        deleteAccount: 'Excluir conta',
+        updateAccount: 'Atualizar cadastro',
+      },
+      deleteAccount: {
+        title: 'Tem certeza de que quer excluir sua conta?',
+        subtitle: 'Essa ação não poderá ser desfeita!',
+        deleteButton: 'Excluir conta',
+        cancelButton: 'Cancelar',
+      },
+      updateAccount: {
+        title: 'Atualização de cadastro',
+        subtitle: 'Deixe em branco os campos que não quiser alterar.',
+        updateButton: 'Salvar',
+        cancelButton: 'Cancelar',
+      },
     },
   },
   authErrors: {

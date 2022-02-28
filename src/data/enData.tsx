@@ -1,3 +1,4 @@
+import { updateCurrentUser } from 'firebase/auth';
 import { DataType } from '../types/dataType';
 
 export const enData: DataType = {
@@ -54,6 +55,13 @@ export const enData: DataType = {
     },
   },
   pages: {
+    titles: {
+      signup: 'Sign Up',
+      login: 'Log In',
+      browse: 'Home',
+      yourAccount: 'Your Account',
+      pageNotFound: 'Page Not Found',
+    },
     landing: {
       hero: {
         title: 'Unlimited movies, TV shows, and more.',
@@ -163,6 +171,42 @@ export const enData: DataType = {
       title: 'Sign in',
       noAcc: 'New to Netflix?',
       signUp: 'Sign up now',
+    },
+    yourAccount: {
+      title: 'Account',
+      accountAge: 'Member since',
+      months: [
+        'january',
+        'february',
+        'march',
+        'april',
+        'may',
+        'june',
+        'july',
+        'august',
+        'september',
+        'october',
+        'november',
+        'december',
+      ],
+      info: {
+        title: 'Account information',
+        password: 'Password',
+        deleteAccount: 'Delete account',
+        updateAccount: 'Update account',
+      },
+      deleteAccount: {
+        title: 'Are you sure that you want delete your account?',
+        subtitle: 'This action cannot be undone!',
+        deleteButton: 'Delete account',
+        cancelButton: 'Cancel',
+      },
+      updateAccount: {
+        title: 'Update your account',
+        subtitle: "Leave it blank the fields you don't want to updateCurrentUser.",
+        updateButton: 'Update',
+        cancelButton: 'Cancel',
+      },
     },
   },
   authErrors: {

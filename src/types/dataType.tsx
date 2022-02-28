@@ -33,6 +33,13 @@ export type DataType = {
     };
   };
   pages: {
+    titles: {
+      signup: string;
+      login: string;
+      browse: string;
+      yourAccount: string;
+      pageNotFound: string;
+    };
     landing: {
       hero: {
         title: string;
@@ -70,6 +77,29 @@ export type DataType = {
       title: string;
       noAcc: string;
       signUp: string;
+    };
+    yourAccount: {
+      title: string;
+      accountAge: string;
+      months: string[];
+      info: {
+        title: string;
+        password: string;
+        deleteAccount: string;
+        updateAccount: string;
+      };
+      deleteAccount: {
+        title: string;
+        subtitle: string;
+        deleteButton: string;
+        cancelButton: string;
+      };
+      updateAccount: {
+        title: string;
+        subtitle: string;
+        updateButton: string;
+        cancelButton: string;
+      };
     };
   };
   authErrors: {
