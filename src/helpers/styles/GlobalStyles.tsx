@@ -12,9 +12,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
 
 
   body {
-    background-color: ${vars.color.darkGrey};
-    /* background-color: ${vars.color.black}; */
-    /* background-color: ${(props) => props.pathname === '/browse' && `${vars.color.darkGrey}`}; */
+    background-color: ${vars.color.black};
 
     color: ${vars.color.white};
     font-size: ${vars.fontSize.default.small};
