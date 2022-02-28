@@ -44,7 +44,6 @@ export const Wrapper = styled.div<Props>`
     props.pathname === '/signup' &&
     ` button {
         background-color: transparent;
-        color: ${vars.color.black};
         font-weight: bold;
         font-size: ${vars.fontSize.default.big};
 
