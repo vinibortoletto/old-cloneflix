@@ -1,4 +1,3 @@
-import { updateCurrentUser } from 'firebase/auth';
 import { DataType } from '../types/dataType';
 
 export const enData: DataType = {
