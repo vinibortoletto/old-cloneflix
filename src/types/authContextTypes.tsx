@@ -9,6 +9,8 @@ export type ContextValue = {
   setIsError: (value: boolean) => void;
   isLoading: boolean;
   setIsLoading: (value: boolean) => void;
+  isAuthenticating: boolean;
+  setIsAuthenticating: (value: boolean) => void;
 
   user: User | null | undefined;
   setUser: (value: User | null | undefined) => void;
