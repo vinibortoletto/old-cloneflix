@@ -1,7 +1,7 @@
 // Libs
 import React from 'react';
 import { useLocation } from 'react-router';
-import { AppRoutes } from './routes';
+import { AppRoutes } from './routes/routes';
 
 // Components
 import Header from './components/Header/Header';

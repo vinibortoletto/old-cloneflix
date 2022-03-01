@@ -14,9 +14,9 @@ import { useAuth } from '../../contexts/Auth';
 import { useData } from '../../contexts/Data';
 
 // Styles
-import * as S from './SignUp.styles';
+import * as S from './Signup.styles';
 
-export default function SignUp() {
+export default function Signup() {
   const navigate = useNavigate();
   const { data } = useData();
   const { subtitle, title, alreadyHaveAcc, login } = data.pages.signup;

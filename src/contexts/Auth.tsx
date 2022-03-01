@@ -27,7 +27,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [user, setUser] = useState<User | null | undefined>();
   const [email, setEmail] = useState('');
@@ -123,6 +123,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setUser(user);
+      setIsLoading(false);
     });
 
     return unsubscribe;
@@ -158,7 +159,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     cleanInputFields,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={value}>{!isLoading && children}</AuthContext.Provider>;
 }
 
 export function useAuth() {
