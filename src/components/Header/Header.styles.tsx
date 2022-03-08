@@ -5,6 +5,7 @@ import { vars } from '../../helpers/styles/variables';
 type Props = { pathname: string };
 
 export const Container = styled.div<Props>`
+  position: fixed;
   max-width: 100rem;
   width: 100%;
   height: ${vars.size.header.small};

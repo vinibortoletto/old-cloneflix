@@ -17,6 +17,7 @@ import { useData } from '../../contexts/Data';
 // Styles
 import * as S from './Header.styles';
 import { Button } from '../Button/Button.styles';
+import MenuMobile from './MenuMobile/MenuMobile';
 
 export default function Header() {
   const pathname = useLocation().pathname;
@@ -29,6 +30,7 @@ export default function Header() {
 
         {pathname === '/browse' && (
           <>
+            <MenuMobile />
             <NavList />
             <NavIcons />
           </>
