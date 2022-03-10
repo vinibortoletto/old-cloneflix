@@ -4,11 +4,11 @@ import { useLocation } from 'react-router';
 import { AppRoutes } from './routes/routes';
 
 // Components
-import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
 // Styles
 import { GlobalStyles } from './helpers/styles/GlobalStyles';
+import Header from './components/Header/Header';
 
 export default function App() {
   const pathname = useLocation().pathname;
@@ -20,8 +20,8 @@ export default function App() {
 
   return (
     <>
-      <GlobalStyles pathname={pathname} />
       <Header />
+      <GlobalStyles pathname={pathname} />
       <main>
         <AppRoutes />
       </main>

@@ -1,18 +1,18 @@
 // Libs
 import React from 'react';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../../libs/firebase';
 import { Link, useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../../../libs/firebase';
 
 // Images
-import { AiOutlineMenu, AiFillHome } from 'react-icons/ai';
+import { AiFillHome, AiOutlineMenu } from 'react-icons/ai';
 import { FaListUl, FaUserAlt } from 'react-icons/fa';
 import { GoSignOut } from 'react-icons/go';
 
 // Styles
-import * as S from './MenuMobile.styles';
+import * as S from './MobileMenu.styles';
 
-export default function MenuMobile() {
+export default function MobileMenu() {
   const navigate = useNavigate();
 
   function handleOpenMobileMenu() {
@@ -32,7 +32,7 @@ export default function MenuMobile() {
   return (
     <>
       <S.Container>
-        <S.MenuButton onClick={handleOpenMobileMenu}>
+        <S.MenuButton id="menu-button" onClick={handleOpenMobileMenu}>
           <AiOutlineMenu />
         </S.MenuButton>
 

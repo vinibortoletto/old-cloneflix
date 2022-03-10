@@ -17,8 +17,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
 
     color: ${vars.color.white};
     font-size: ${vars.fontSize.default.small};
-    font-family: sans-serif;
-
+    font-family: 'Open Sans', sans-serif;
 
     ${media(550)} {
     font-size: ${vars.fontSize.default.big};

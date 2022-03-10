@@ -1,9 +1,8 @@
 import styled from 'styled-components/macro';
-import { DisplaySize, media } from '../../../helpers/styles/mixins';
-import { vars } from '../../../helpers/styles/variables';
+import { DisplaySize, media } from '../../../../helpers/styles/mixins';
+import { vars } from '../../../../helpers/styles/variables';
 
 export const Container = styled.div`
-  order: -1;
   margin-right: 0.5rem;
 
   ${media(DisplaySize.Laptop)} {
@@ -26,7 +25,6 @@ export const MenuListContainer = styled.div`
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 1;
 
   opacity: 0;
   pointer-events: none;
