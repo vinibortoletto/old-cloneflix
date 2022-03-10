@@ -41,4 +41,9 @@ export const vars = {
     small: '1rem',
     big: '2.5rem',
   },
+  maxWidth: {
+    header: '100rem',
+    content: '62.5rem',
+    footer: '100rem',
+  },
 };

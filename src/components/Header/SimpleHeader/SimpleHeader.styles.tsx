@@ -8,7 +8,7 @@ type Props = {
 
 export const Container = styled.header<Props>`
   height: ${vars.size.header.small};
-  max-width: 100rem;
+  max-width: ${vars.maxWidth.header};
   display: flex;
   align-items: center;
   justify-content: space-between;

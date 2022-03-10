@@ -3,7 +3,7 @@ import { media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.footer<{ pathname: string }>`
-  max-width: 1000px;
+  max-width: ${vars.maxWidth.content};
   margin: auto;
 
   color: ${vars.color.mediumGrey};
@@ -12,7 +12,7 @@ export const Container = styled.footer<{ pathname: string }>`
   ${(props) =>
     props.pathname === '/signup' &&
     `
-      max-width: 100rem;
+      max-width: ${vars.maxWidth.footer};
       border-top: 1px solid ${vars.color.grey};
     `}
 

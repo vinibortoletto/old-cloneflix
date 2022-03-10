@@ -5,7 +5,7 @@ import { vars } from '../../../helpers/styles/variables';
 export const Container = styled.header`
   height: ${vars.size.header.small};
   width: 100%;
-  max-width: 100rem;
+  max-width: ${vars.maxWidth.header};
   position: fixed;
   display: flex;
   align-items: center;

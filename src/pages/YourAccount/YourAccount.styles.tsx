@@ -3,12 +3,14 @@ import { media } from '../../helpers/styles/mixins';
 import { vars } from '../../helpers/styles/variables';
 
 export const Container = styled.div`
-  max-width: 1000px;
+  max-width: ${vars.maxWidth.content};
   margin: auto;
-  padding: 2rem ${vars.sidePadding.small};
+  padding: calc(${vars.size.header.small} + 2rem) ${vars.sidePadding.small} 2rem
+    ${vars.sidePadding.small};
 
   ${media(550)} {
-    padding: 2rem ${vars.sidePadding.big};
+    padding-left: ${vars.sidePadding.big};
+    padding-right: ${vars.sidePadding.big};
   }
 `;
 
