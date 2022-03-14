@@ -9,13 +9,16 @@ import App from './App';
 // Contexts
 import { DataProvider } from './contexts/Data';
 import { AuthProvider } from './contexts/Auth';
+import { LibraryProvider } from './contexts/Library';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <DataProvider>
         <AuthProvider>
-          <App />
+          <LibraryProvider>
+            <App />
+          </LibraryProvider>
         </AuthProvider>
       </DataProvider>
     </BrowserRouter>

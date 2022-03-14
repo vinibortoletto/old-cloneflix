@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle<Props>`
     font-family: 'Open Sans', sans-serif;
 
     ${media(550)} {
-    font-size: ${vars.fontSize.default.big};
+      font-size: ${vars.fontSize.default.big};
     }
   }
 

@@ -9,6 +9,7 @@ export const vars = {
     white: '#ffffff',
     black: '#000000',
     orange: 'orange',
+    green: '#2dbd77',
   },
   borderRadius: '0.1875rem',
   size: {
@@ -18,7 +19,7 @@ export const vars = {
       big: '57rem',
     },
     header: {
-      small: '5rem',
+      small: '4rem',
       big: '7rem',
     },
   },
