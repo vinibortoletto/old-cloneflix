@@ -44,7 +44,6 @@ const BeforeElmt = css`
 export const Container = styled.div<Props>`
   position: relative;
   margin-right: 0.5rem;
-  z-index: -1;
 
   ${media(550)} {
     margin-right: 1.5rem;

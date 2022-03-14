@@ -9,10 +9,13 @@ type Props = {
 export const Container = styled.header<Props>`
   height: ${vars.size.header.small};
   max-width: ${vars.maxWidth.header};
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: ${vars.sidePadding.small};
+  margin: auto;
 
   ${media(550)} {
     font-size: ${vars.fontSize.default.small};
