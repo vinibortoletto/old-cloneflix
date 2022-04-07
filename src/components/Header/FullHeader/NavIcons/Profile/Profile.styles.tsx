@@ -4,7 +4,7 @@ import { vars } from '../../../../../helpers/styles/variables';
 export const DropdownMenu = styled.div`
   opacity: 0;
   pointer-events: none;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   position: absolute;
   right: 0;
 `;

@@ -10,31 +10,13 @@ export const RowTitle = styled.h1`
   text-transform: capitalize;
 `;
 
-export const RowContainer = styled.div`
-  display: flex;
-  gap: 0.5rem;
-  overflow-x: hidden;
-`;
+export const RowContainer = styled.div``;
 
 export const RowCard = styled.div`
-  cursor: pointer;
-  height: 12rem;
+  height: 15rem;
+  width: 10rem;
   min-width: 8rem;
-  position: relative;
-
-  ${media(DisplaySize.Laptop)} {
-    height: 10rem;
-    min-width: 18rem;
-  }
-
-  /* &::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent 50%);
-    display: inline-block;
-  } */
+  cursor: pointer;
 `;
 
 export const RowCardImage = styled.img`
@@ -44,17 +26,59 @@ export const RowCardImage = styled.img`
   border-radius: ${vars.borderRadius};
 `;
 
-export const RowCardTitle = styled.h2`
-  width: 80%;
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  font-size: ${vars.fontSize.default.tiny};
-  font-weight: bold;
-`;
-
 export const Row = styled.div`
   margin-bottom: 3rem;
+
+  .slick-slide {
+    margin: 0 0.25rem;
+  }
+
+  .slick-next,
+  .slick-prev {
+    height: 100%;
+    width: 2.5rem;
+
+    position: absolute;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.8);
+
+    /* Hidden in mobile */
+    display: none !important;
+    ${media(DisplaySize.Laptop)} {
+      display: block !important;
+    }
+
+    /* Hidden until row is hovered */
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease;
+  }
+
+  &:hover {
+    /* Show on hover */
+    .slick-next,
+    .slick-prev {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  .slick-next::before,
+  .slick-prev::before {
+    font-size: 4rem;
+    line-height: 0;
+  }
+
+  .slick-prev {
+    left: 0;
+    &::before {
+      content: '‹';
+    }
+  }
+  .slick-next {
+    right: 0;
+    &::before {
+      content: '›';
+    }
+  }
 `;

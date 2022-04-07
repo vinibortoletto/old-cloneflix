@@ -30,18 +30,3 @@ export default function Browse() {
     </>
   );
 }
-
-/*
-    - Spotlight
-      - Bg
-      - Info
-         - Movie name
-         - Num of seasons
-         - description
-         - buttons
-            - play
-            - more info
-    - Movie row
-      - Row title
-      - Cards
-*/
