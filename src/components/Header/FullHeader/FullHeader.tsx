@@ -17,6 +17,7 @@ export default function FullHeader() {
   useEffect(() => {
     function handleHeaderTransparency() {
       const header = document.querySelector('header') as HTMLElement;
+
       if (window.scrollY > 0) header.classList.add('solid');
       else header.classList.remove('solid');
     }

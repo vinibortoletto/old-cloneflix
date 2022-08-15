@@ -24,7 +24,7 @@ export const MenuListContainer = styled.div`
 
   position: fixed;
   left: 0;
-  bottom: 0;
+  top: ${vars.size.header.small};
 
   opacity: 0;
   pointer-events: none;
@@ -41,13 +41,9 @@ export const MenuList = styled.ul`
   height: 100%;
   padding: ${vars.sidePadding.small};
 
-  ${media(550)} {
-    padding: 0 ${vars.sidePadding.big};
-  }
-
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 
   font-size: ${vars.fontSize.default.small};
   font-weight: bold;

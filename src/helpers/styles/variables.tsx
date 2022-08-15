@@ -39,7 +39,7 @@ export const vars = {
     },
   },
   sidePadding: {
-    small: '1rem',
+    small: '1.5rem',
     big: '2.5rem',
   },
   maxWidth: {
